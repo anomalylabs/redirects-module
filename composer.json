@@ -1,0 +1,17 @@
+{
+    "name": "anomaly/redirects-module",
+    "type": "streams-addon",
+    "description": "Redirects module.",
+    "authors": [
+        {
+            "name": "AnomalyLabs",
+            "email": "hello@anomaly.is"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
