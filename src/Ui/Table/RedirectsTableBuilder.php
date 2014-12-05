@@ -12,5 +12,11 @@ class RedirectsTableBuilder extends TableBuilder
         'from',
         'to',
     ];
+
+    protected $columns = [
+        'type',
+        'from',
+        'to',
+    ];
 }
  
