@@ -20,8 +20,8 @@ class RedirectsFieldInstaller extends FieldInstaller
                 ],
             ]
         ],
-        'from',
-        'to',
+        'from' => 'text',
+        'to'   => 'text',
     ];
 }
  

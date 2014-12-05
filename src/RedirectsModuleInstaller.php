@@ -1,6 +1,8 @@
 <?php namespace Anomaly\Streams\Addon\Module\Redirects;
 
-class RedirectsModuleInstaller
+use Anomaly\Streams\Platform\Addon\Module\ModuleInstaller;
+
+class RedirectsModuleInstaller extends ModuleInstaller
 {
 
     /**
