@@ -1,4 +1,4 @@
-redirect-module
+redirects-module
 ===============
 
-Redirect module.
+Redirects module.
