@@ -10,7 +10,7 @@ class RedirectsModule extends Module
      *
      * @var string
      */
-    protected $navigation = 'admin.navigation.system';
+    protected $navigation = 'admin.navigation.structure';
 
     /**
      * The module sections.
@@ -18,11 +18,14 @@ class RedirectsModule extends Module
      * @var array
      */
     protected $sections = [
-        'redirects' => [
+        'redirects'  => [
             'url'     => 'admin/redirects',
             'buttons' => [
                 'create' => []
             ]
+        ],
+        'extensions' => [
+            'url'     => 'admin/redirects/extensions',
         ],
     ];
 }

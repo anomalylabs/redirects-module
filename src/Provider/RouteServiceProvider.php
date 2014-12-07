@@ -16,6 +16,7 @@ class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\Rout
     public function map()
     {
         $this->registerRedirectRoutes();
+        $this->registerExtensionRoutes();
     }
 
     /**
@@ -24,6 +25,14 @@ class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\Rout
     protected function registerRedirectRoutes()
     {
         app('router')->any('admin/redirects', $this->prefix . 'Admin\RedirectsController@index');
+    }
+
+    /**
+     * Register extension routes.
+     */
+    protected function registerExtensionRoutes()
+    {
+        app('router')->any('admin/redirects/extensions', $this->prefix . 'Admin\ExtensionsController@index');
     }
 }
  

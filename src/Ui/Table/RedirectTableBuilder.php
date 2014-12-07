@@ -2,7 +2,7 @@
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
-class RedirectsTableBuilder extends TableBuilder
+class RedirectTableBuilder extends TableBuilder
 {
 
     protected $model = 'Anomaly\Streams\Addon\Module\Redirects\Redirect\RedirectModel';

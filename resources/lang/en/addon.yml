@@ -3,3 +3,4 @@ description: Redirects module.
 
 section:
     redirects: Redirects
+    extensions: Extensions
