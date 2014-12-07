@@ -10,7 +10,7 @@ class RedirectsModule extends Module
      *
      * @var string
      */
-    protected $navigation = 'admin.navigation.structure';
+    protected $navigation = 'navigation.structure';
 
     /**
      * The module sections.
