@@ -10,7 +10,7 @@ class RedirectsModule extends Module
      *
      * @var string
      */
-    protected $navigation = 'navigation.structure';
+    protected $navigation = 'streams::navigation.structure';
 
     /**
      * The module sections.
