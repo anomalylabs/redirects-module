@@ -6,6 +6,13 @@ class RedirectsStreamInstaller extends StreamInstaller
 {
 
     /**
+     * The stream configuration.
+     *
+     * @var array
+     */
+    protected $stream = 'redirects';
+
+    /**
      * The stream assignments.
      *
      * @var array

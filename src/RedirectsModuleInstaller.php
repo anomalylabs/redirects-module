@@ -11,8 +11,8 @@ class RedirectsModuleInstaller extends ModuleInstaller
      * @var array
      */
     protected $installers = [
-        'RedirectsFieldInstaller',
-        'RedirectsStreamInstaller',
+        'Anomaly\Streams\Addon\Module\Redirects\Installer\RedirectsFieldInstaller',
+        'Anomaly\Streams\Addon\Module\Redirects\Installer\RedirectsStreamInstaller',
     ];
 }
  
