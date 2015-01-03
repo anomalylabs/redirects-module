@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\Module\Redirects\Provider;
+<?php namespace Anomaly\RedirectsModule\Provider;
 
 class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\RouteServiceProvider
 {
@@ -8,7 +8,7 @@ class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\Rout
      *
      * @var string
      */
-    protected $prefix = 'Anomaly\Streams\Addon\Module\Redirects\Http\Controller\\';
+    protected $prefix = 'Anomaly\RedirectsModule\Http\Controller\\';
 
     /**
      * Define the routes for the application.

@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\Module\Redirects;
+<?php namespace Anomaly\RedirectsModule;
 
 use Anomaly\Streams\Platform\Addon\Module\Module;
 

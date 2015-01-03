@@ -1,6 +1,6 @@
-<?php namespace Anomaly\Streams\Addon\Module\Redirects\Http\Controller\Admin;
+<?php namespace Anomaly\RedirectsModule\Http\Controller\Admin;
 
-use Anomaly\Streams\Addon\Module\Redirects\Ui\Table\ExtensionTableBuilder;
+use Anomaly\RedirectsModule\Ui\Table\ExtensionTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 class ExtensionsController extends AdminController

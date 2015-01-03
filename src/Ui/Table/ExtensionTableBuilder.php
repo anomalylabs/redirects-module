@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\Module\Redirects\Ui\Table;
+<?php namespace Anomaly\RedirectsModule\Ui\Table;
 
 use Anomaly\Streams\Platform\Addon\Extension\Extension;
 use Anomaly\Streams\Platform\Ui\Table\Table;

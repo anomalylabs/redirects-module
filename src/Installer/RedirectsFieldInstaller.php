@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\Module\Redirects\Installer;
+<?php namespace Anomaly\RedirectsModule\Installer;
 
 use Anomaly\Streams\Platform\Field\FieldInstaller;
 

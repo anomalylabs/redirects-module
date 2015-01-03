@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\Module\Redirects;
+<?php namespace Anomaly\RedirectsModule;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -12,9 +12,9 @@ class RedirectsModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //$this->app->register('Anomaly\Streams\Addon\Module\Redirects\Provider\ServiceProvider');
+        //$this->app->register('Anomaly\RedirectsModule\Provider\ServiceProvider');
 
-        $this->app->register('Anomaly\Streams\Addon\Module\Redirects\Provider\RouteServiceProvider');
+        $this->app->register('Anomaly\RedirectsModule\Provider\RouteServiceProvider');
     }
 }
  

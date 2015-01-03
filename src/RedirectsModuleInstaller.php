@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\Module\Redirects;
+<?php namespace Anomaly\RedirectsModule;
 
 use Anomaly\Streams\Platform\Addon\Module\ModuleInstaller;
 
@@ -11,8 +11,8 @@ class RedirectsModuleInstaller extends ModuleInstaller
      * @var array
      */
     protected $installers = [
-        'Anomaly\Streams\Addon\Module\Redirects\Installer\RedirectsFieldInstaller',
-        'Anomaly\Streams\Addon\Module\Redirects\Installer\RedirectsStreamInstaller',
+        'Anomaly\RedirectsModule\Installer\RedirectsFieldInstaller',
+        'Anomaly\RedirectsModule\Installer\RedirectsStreamInstaller',
     ];
 }
  
