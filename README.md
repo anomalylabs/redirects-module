@@ -1,4 +1,3 @@
-redirects-module
-===============
+# Redirects Module
 
-Redirects module.
+HTTP redirects.
