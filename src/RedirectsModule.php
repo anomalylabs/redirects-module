@@ -14,9 +14,9 @@ class RedirectsModule extends Module
 {
 
     /**
-     * The module redirects role.
+     * The module navigation group.
      *
      * @var string
      */
-    protected $redirects = 'streams::navigation.structure';
+    protected $navigation = 'streams::navigation.structure';
 }
