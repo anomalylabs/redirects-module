@@ -27,5 +27,6 @@ class RedirectsModule extends Module
      */
     protected $sections = [
         'redirects',
+        'extensions',
     ];
 }
