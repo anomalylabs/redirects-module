@@ -1,8 +1,10 @@
 <?php namespace Anomaly\RedirectsModule\Http\Controller;
 
+use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\RedirectsModule\Ui\Form\Redirect\RedirectFormBuilder;
 use Anomaly\RedirectsModule\Ui\Table\Redirect\RedirectTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
+use Illuminate\Routing\Redirector;
 
 /**
  * Class RedirectsController
@@ -47,5 +49,20 @@ class RedirectsController extends AdminController
     public function edit(RedirectFormBuilder $form, $id)
     {
         return $form->render($id);
+    }
+
+    /**
+     * Delete a redirect.
+     *
+     * @param RedirectRepositoryInterface $redirects
+     * @param Redirector                  $redirector
+     * @param                             $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function delete(RedirectRepositoryInterface $redirects, Redirector $redirector, $id)
+    {
+        $redirects->delete($id);
+
+        return $redirector->back();
     }
 }

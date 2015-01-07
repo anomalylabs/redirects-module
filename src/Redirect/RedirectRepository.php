@@ -39,4 +39,19 @@ class RedirectRepository implements RedirectRepositoryInterface
     {
         return $this->model->all();
     }
+
+    /**
+     * Delete a redirect.
+     *
+     * @param $id
+     * @return \Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface
+     */
+    public function delete($id)
+    {
+        $redirect = $this->model->find($id);
+
+        $redirect->delete();
+
+        return $redirect;
+    }
 }

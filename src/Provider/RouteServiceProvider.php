@@ -42,5 +42,9 @@ class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\Rout
             'admin/redirects/edit/{id}',
             'Anomaly\RedirectsModule\Http\Controller\RedirectsController@edit'
         );
+        $router->any(
+            'admin/redirects/delete/{id}',
+            'Anomaly\RedirectsModule\Http\Controller\RedirectsController@delete'
+        );
     }
 }
