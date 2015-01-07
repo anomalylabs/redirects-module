@@ -26,7 +26,12 @@ class RedirectsModule extends Module
      * @var array
      */
     protected $sections = [
-        'redirects',
+        'redirects' => [
+            'url'     => 'admin/redirects',
+            'buttons' => [
+                'create' => []
+            ]
+        ],
         'extensions',
     ];
 }
