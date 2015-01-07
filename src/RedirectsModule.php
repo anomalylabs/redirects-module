@@ -19,4 +19,13 @@ class RedirectsModule extends Module
      * @var string
      */
     protected $navigation = 'streams::navigation.structure';
+
+    /**
+     * The module's sections.
+     *
+     * @var array
+     */
+    protected $sections = [
+        'redirects',
+    ];
 }
