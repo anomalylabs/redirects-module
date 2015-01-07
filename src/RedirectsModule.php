@@ -18,5 +18,5 @@ class RedirectsModule extends Module
      *
      * @var string
      */
-    protected $redirects = 'streams::redirects.structure';
+    protected $redirects = 'streams::navigation.structure';
 }
