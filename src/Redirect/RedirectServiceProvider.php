@@ -42,11 +42,11 @@ class RedirectServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'Anomaly\RedirectsModule\Redirect\RedirectModel',
-            'Anomaly\RedirectsModule\Redirect\RedirectModel'
+            config('anomaly.module.redirects::config.redirects.model')
         );
         $this->app->bind(
             'Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface',
-            'Anomaly\RedirectsModule\Redirect\RedirectRepository'
+            config('anomaly.module.redirects::config.redirects.repository')
         );
     }
 }
