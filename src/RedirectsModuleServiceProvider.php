@@ -21,5 +21,6 @@ class RedirectsModuleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register('Anomaly\RedirectsModule\Provider\RouteServiceProvider');
+        $this->app->register('Anomaly\RedirectsModule\Redirect\RedirectServiceProvider');
     }
 }

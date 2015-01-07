@@ -19,4 +19,18 @@ class RedirectTableBuilder extends TableBuilder
      * @var string
      */
     protected $model = 'Anomaly\RedirectsModule\Redirect\RedirectModel';
+
+    /**
+     * The table columns.
+     *
+     * @var string
+     */
+    protected $columns = 'Anomaly\RedirectsModule\Ui\Table\Redirect\Handler\ColumnHandler@handle';
+
+    /**
+     * The table buttons.
+     *
+     * @var string
+     */
+    protected $buttons = 'Anomaly\RedirectsModule\Ui\Table\Redirect\Handler\ButtonHandler@handle';
 }
