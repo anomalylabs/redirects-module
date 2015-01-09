@@ -1,7 +1,7 @@
 <?php namespace Anomaly\RedirectsModule\Redirect;
 
+use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Support\ServiceProvider;
-use Laracasts\Commander\CommanderTrait;
 
 /**
  * Class RedirectServiceProvider
@@ -14,7 +14,7 @@ use Laracasts\Commander\CommanderTrait;
 class RedirectServiceProvider extends ServiceProvider
 {
 
-    use CommanderTrait;
+    use DispatchesCommands;
 
     /**
      * Register the service provider.
@@ -32,7 +32,7 @@ class RedirectServiceProvider extends ServiceProvider
      */
     protected function registerRedirects()
     {
-        $this->execute('Anomaly\RedirectsModule\Redirect\Command\RegisterRedirectsCommand');
+        //$this->execute('Anomaly\RedirectsModule\Redirect\Command\RegisterRedirectsCommand');
     }
 
     /**
