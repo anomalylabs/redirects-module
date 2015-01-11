@@ -6,14 +6,14 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Routing\Router;
 
 /**
- * Class RegisterRedirectsCommandHandler
+ * Class RegisterRedirectsHandler
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\RedirectsModule\Redirect\Command
  */
-class RegisterRedirectsCommandHandler
+class RegisterRedirectsHandler
 {
 
     /**
@@ -38,7 +38,7 @@ class RegisterRedirectsCommandHandler
     protected $redirects;
 
     /**
-     * Create a new RegisterRedirectsCommandHandler instance.
+     * Create a new RegisterRedirectsHandler instance.
      *
      * @param Router                      $router
      * @param Redirector                  $redirector
