@@ -31,4 +31,5 @@ class RedirectsStreamInstaller extends StreamInstaller
         'status',
         'secure'
     ];
+
 }

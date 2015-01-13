@@ -22,4 +22,5 @@ class RedirectsModuleInstaller extends ModuleInstaller
         'Anomaly\RedirectsModule\Installer\RedirectsFieldInstaller',
         'Anomaly\RedirectsModule\Installer\RedirectsStreamInstaller'
     ];
+
 }

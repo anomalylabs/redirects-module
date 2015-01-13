@@ -34,4 +34,5 @@ class RedirectsFieldInstaller extends FieldInstaller
             'type' => 'boolean'
         ]
     ];
+
 }

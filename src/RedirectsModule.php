@@ -34,4 +34,5 @@ class RedirectsModule extends Module
         ],
         'extensions',
     ];
+
 }

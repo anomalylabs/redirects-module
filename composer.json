@@ -2,7 +2,12 @@
     "name": "anomaly/redirects-module",
     "type": "streams-addon",
     "description": "HTTP redirects.",
-    "redirects": ["streams-addon", "redirects", "pyrocms", "laravel"],
+    "redirects": [
+        "streams-addon",
+        "redirects",
+        "pyrocms",
+        "laravel"
+    ],
     "homepage": "http://anomaly.is/",
     "license": "MIT",
     "authors": [

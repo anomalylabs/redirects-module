@@ -33,4 +33,5 @@ class RedirectTableBuilder extends TableBuilder
      * @var string
      */
     protected $buttons = 'Anomaly\RedirectsModule\Ui\Table\Redirect\Handler\ButtonHandler@handle';
+
 }

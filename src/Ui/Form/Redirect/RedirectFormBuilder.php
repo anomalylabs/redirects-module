@@ -19,4 +19,5 @@ class RedirectFormBuilder extends FormBuilder
      * @var string
      */
     protected $model = 'Anomaly\RedirectsModule\Redirect\RedirectModel';
+
 }
