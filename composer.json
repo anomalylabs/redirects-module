@@ -2,6 +2,8 @@
     "name": "anomaly/redirects-module",
     "type": "streams-addon",
     "description": "HTTP redirects.",
+    "version": "1.0.0",
+    "license": "MIT",
     "redirects": [
         "streams-addon",
         "redirects",
@@ -9,7 +11,6 @@
         "laravel"
     ],
     "homepage": "http://anomaly.is/",
-    "license": "MIT",
     "authors": [
         {
             "name": "AnomalyLabs, Inc.",

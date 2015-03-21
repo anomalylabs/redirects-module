@@ -1,24 +1,26 @@
-<?php namespace Anomaly\RedirectsModule\Installer;
+<?php
 
-use Anomaly\Streams\Platform\Stream\StreamInstaller;
+use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class RedirectsStreamInstaller
+ * Class AnomalyModuleRedirects_1_0_0_CreateRedirectsStream
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\RedirectsModule\Installer
  */
-class RedirectsStreamInstaller extends StreamInstaller
+class AnomalyModuleRedirects_1_0_0_CreateRedirectsStream extends Migration
 {
 
     /**
-     * The stream configuration.
+     * The stream definition.
      *
      * @var string
      */
-    protected $stream = 'redirects';
+    protected $stream = [
+        'slug'   => 'redirects',
+        'locked' => true
+    ];
 
     /**
      * The stream assignments.

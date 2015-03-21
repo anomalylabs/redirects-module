@@ -4,7 +4,6 @@ return [
     'name'        => 'Redirects',
     'description' => 'HTTP redirects.',
     'section'     => [
-        'redirects'  => 'Redirects',
-        'extensions' => 'Extensions'
+        'redirects' => 'Redirects'
     ]
 ];

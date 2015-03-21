@@ -1,28 +1,27 @@
-<?php namespace Anomaly\RedirectsModule\Installer;
+<?php
 
-use Anomaly\Streams\Platform\Field\FieldInstaller;
+use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class RedirectsFieldInstaller
+ * Class AnomalyModuleRedirects_1_0_0_CreateRedirectsFields
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\RedirectsModule\Installer
  */
-class RedirectsFieldInstaller extends FieldInstaller
+class AnomalyModuleRedirects_1_0_0_CreateRedirectsFields extends Migration
 {
 
     /**
-     * The field configurations.
+     * The addon fields.
      *
      * @var array
      */
     protected $fields = [
-        'from'   => 'text',
-        'to'     => 'text',
+        'from'   => 'anomaly.field_type.text',
+        'to'     => 'anomaly.field_type.text',
         'status' => [
-            'type'   => 'select',
+            'type'   => 'anomaly.field_type.select',
             'config' => [
                 'options' => [
                     '301' => 'anomaly.module.redirects::field.status.option.301',
@@ -31,7 +30,7 @@ class RedirectsFieldInstaller extends FieldInstaller
             ]
         ],
         'secure' => [
-            'type' => 'boolean'
+            'type' => 'anomaly.field_type.boolean'
         ]
     ];
 
