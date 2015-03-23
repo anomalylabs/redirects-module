@@ -54,14 +54,19 @@ class Redirect
     /**
      * Handle the event.
      *
-     * @return Redirector
+     * @return null|Redirector
      */
     public function handle()
     {
-        $redirects = $this->redirects->all();
+        /**
+         * If we're in the admin, skip it.
+         */
+        if ($this->request->segment(1) === 'admin') {
+            return null;
+        }
 
         /* @var RedirectInterface $redirect */
-        foreach ($redirects as $redirect) {
+        foreach ($this->redirects->all() as $redirect) {
 
             /**
              * Check if it's a direct match.

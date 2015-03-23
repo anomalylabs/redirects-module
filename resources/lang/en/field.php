@@ -3,15 +3,15 @@
 return [
     'from'   => [
         'name'         => 'From',
-        'instructions' => 'Enter the path or pattern to match.'
+        'instructions' => 'Enter an exact path or regex pattern. For example <strong>/(foo\/bar\/)(.+)([1-9])/</strong> or <strong>foo/bar</strong>.'
     ],
     'to'     => [
         'name'         => 'To',
-        'instructions' => 'Enter the path to redirect to.'
+        'instructions' => 'Enter an exact path or regex replacement to redirect to. For example <strong>bar/baz/$1</strong> or <strong>bar/baz</strong>.'
     ],
     'status' => [
         'name'         => 'Status',
-        'instructions' => 'The redirect status.',
+        'instructions' => 'What kind of redirect is this?',
         'option'       => [
             '301' => '301 Permanent Redirect',
             '302' => '302 Temporary Redirect'
