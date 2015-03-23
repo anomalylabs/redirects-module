@@ -2,7 +2,7 @@
 
 return [
     'name'        => 'Redirects',
-    'description' => 'HTTP redirects.',
+    'description' => 'Manage redirects from one URL to another.',
     'section'     => [
         'redirects' => 'Redirects'
     ]

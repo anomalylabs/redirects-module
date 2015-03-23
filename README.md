@@ -1,3 +1,3 @@
 # Redirects Module
 
-HTTP redirects.
+Manage redirects from one URL to another.

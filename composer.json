@@ -1,7 +1,7 @@
 {
     "name": "anomaly/redirects-module",
     "type": "streams-addon",
-    "description": "HTTP redirects.",
+    "description": "Manage redirects from one URL to another.",
     "version": "1.0.0",
     "license": "MIT",
     "redirects": [
