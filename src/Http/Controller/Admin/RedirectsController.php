@@ -1,4 +1,4 @@
-<?php namespace Anomaly\RedirectsModule\Http\Controller;
+<?php namespace Anomaly\RedirectsModule\Http\Controller\Admin;
 
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\RedirectsModule\Redirect\Form\RedirectFormBuilder;

@@ -1,6 +1,8 @@
 <?php namespace Anomaly\RedirectsModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
 
 /**
  * Class RedirectsModuleServiceProvider
@@ -19,10 +21,10 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'admin/redirects'             => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@index',
-        'admin/redirects/create'      => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@create',
-        'admin/redirects/edit/{id}'   => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@edit',
-        'admin/redirects/delete/{id}' => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@delete'
+        'admin/redirects'             => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
+        'admin/redirects/create'      => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
+        'admin/redirects/edit/{id}'   => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit',
+        'admin/redirects/delete/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@delete'
     ];
 
     /**
@@ -41,6 +43,17 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      */
     protected $singletons = [
         'Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface' => 'Anomaly\RedirectsModule\Redirect\RedirectRepository'
+    ];
+
+    /**
+     * The addon listeners.
+     *
+     * @var array
+     */
+    protected $listeners = [
+        'Anomaly\Streams\Platform\Application\Event\ApplicationHasLoaded' => [
+            'Anomaly\RedirectsModule\Redirect\Listener\Redirect'
+        ]
     ];
 
 }

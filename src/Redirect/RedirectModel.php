@@ -15,6 +15,13 @@ class RedirectModel extends RedirectsRedirectsEntryModel implements RedirectInte
 {
 
     /**
+     * The cache minutes.
+     *
+     * @var int
+     */
+    protected $cacheMinutes = 99999;
+
+    /**
      * Get the redirect from matcher.
      *
      * @return string
