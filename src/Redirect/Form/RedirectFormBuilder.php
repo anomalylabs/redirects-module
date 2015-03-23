@@ -1,4 +1,4 @@
-<?php namespace Anomaly\RedirectsModule\Ui\Form\Redirect;
+<?php namespace Anomaly\RedirectsModule\Redirect\Form;
 
 use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 
@@ -8,7 +8,7 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\RedirectsModule\Ui\Form\Redirect
+ * @package       Anomaly\RedirectsModule\Redirect\Form
  */
 class RedirectFormBuilder extends FormBuilder
 {
@@ -19,5 +19,14 @@ class RedirectFormBuilder extends FormBuilder
      * @var string
      */
     protected $model = 'Anomaly\RedirectsModule\Redirect\RedirectModel';
+
+    /**
+     * The form buttons.
+     *
+     * @var array
+     */
+    protected $buttons = [
+        'cancel'
+    ];
 
 }

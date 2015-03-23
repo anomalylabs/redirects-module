@@ -28,9 +28,16 @@ class AnomalyModuleRedirects_1_0_0_CreateRedirectsStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'from',
-        'to',
-        'status',
+        'from'   => [
+            'unique'   => true,
+            'required' => true
+        ],
+        'to'     => [
+            'required' => true
+        ],
+        'status' => [
+            'required' => true
+        ],
         'secure'
     ];
 

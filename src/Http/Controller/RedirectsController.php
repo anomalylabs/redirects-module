@@ -1,8 +1,8 @@
 <?php namespace Anomaly\RedirectsModule\Http\Controller;
 
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
-use Anomaly\RedirectsModule\Ui\Form\Redirect\RedirectFormBuilder;
-use Anomaly\RedirectsModule\Ui\Table\Redirect\RedirectTableBuilder;
+use Anomaly\RedirectsModule\Redirect\Form\RedirectFormBuilder;
+use Anomaly\RedirectsModule\Redirect\Table\RedirectTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 use Illuminate\Routing\Redirector;
 

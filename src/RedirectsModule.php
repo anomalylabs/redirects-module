@@ -29,10 +29,9 @@ class RedirectsModule extends Module
         'redirects' => [
             'url'     => 'admin/redirects',
             'buttons' => [
-                'create' => []
+                'new_redirect'
             ]
-        ],
-        'extensions',
+        ]
     ];
 
 }

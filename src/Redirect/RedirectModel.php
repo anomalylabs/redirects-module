@@ -51,6 +51,6 @@ class RedirectModel extends RedirectsRedirectsEntryModel implements RedirectInte
      */
     public function isSecure()
     {
-        return ($this->secure);
+        return $this->secure;
     }
 }
