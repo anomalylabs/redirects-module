@@ -29,12 +29,7 @@ class AnomalyModuleRedirects_1_0_0_CreateRedirectsFields extends Migration
                 ]
             ]
         ],
-        'secure' => [
-            'type'   => 'anomaly.field_type.boolean',
-            'config' => [
-                'text' => 'anomaly.module.redirects::field.secure.text'
-            ]
-        ]
+        'secure' => 'anomaly.field_type.boolean'
     ];
 
 }

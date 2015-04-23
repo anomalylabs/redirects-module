@@ -13,20 +13,4 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 class RedirectFormBuilder extends FormBuilder
 {
 
-    /**
-     * The form model for fetching/saving the entry.
-     *
-     * @var string
-     */
-    protected $model = 'Anomaly\RedirectsModule\Redirect\RedirectModel';
-
-    /**
-     * The form buttons.
-     *
-     * @var array
-     */
-    protected $buttons = [
-        'cancel'
-    ];
-
 }

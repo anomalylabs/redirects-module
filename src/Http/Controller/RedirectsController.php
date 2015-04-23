@@ -24,8 +24,6 @@ class RedirectsController extends PublicController
      */
     public function __call($method, $parameters)
     {
-        $id = substr($method, strpos($method, '_') + 1);
-
-        return $this->dispatch(new GetRedirectResponse($id));
+        return $this->dispatch(new GetRedirectResponse(substr($method, strpos($method, '_') + 1)));
     }
 }

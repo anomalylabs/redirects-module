@@ -14,6 +14,16 @@ class RedirectTableBuilder extends TableBuilder
 {
 
     /**
+     * The table filters.
+     *
+     * @var array
+     */
+    protected $filters = [
+        'from',
+        'to'
+    ];
+
+    /**
      * The table columns.
      *
      * @var string
@@ -21,7 +31,8 @@ class RedirectTableBuilder extends TableBuilder
     protected $columns = [
         'status',
         'from',
-        'to'
+        'to',
+        'entry.secure.icon'
     ];
 
     /**
@@ -40,6 +51,15 @@ class RedirectTableBuilder extends TableBuilder
      */
     protected $actions = [
         'delete'
+    ];
+
+    /**
+     * The table options.
+     *
+     * @var array
+     */
+    protected $options = [
+        'sortable' => true
     ];
 
 }

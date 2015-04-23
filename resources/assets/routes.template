@@ -5,4 +5,5 @@ Route::any(
     '{{ redirect.from }}',
     'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle_{{ redirect.id }}'
 );
+
 {% endfor %}

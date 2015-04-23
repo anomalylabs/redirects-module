@@ -61,6 +61,11 @@ class GetRedirectResponse implements SelfHandling
             $route->parameters()
         );
 
-        return $redirector->to($parser->parse($redirect->getTo(), $parameters), $redirect->getStatus());
+        return $redirector->to(
+            $parser->parse($redirect->getTo(), $parameters),
+            $redirect->getStatus(),
+            [],
+            $redirect->isSecure()
+        );
     }
 }

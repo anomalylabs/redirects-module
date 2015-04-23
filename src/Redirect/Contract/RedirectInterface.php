@@ -22,28 +22,28 @@ interface RedirectInterface
     /**
      * Get the redirect from matcher.
      *
-     * @return mixed
+     * @return string
      */
     public function getFrom();
 
     /**
      * Get the redirect to path.
      *
-     * @return mixed
+     * @return string
      */
     public function getTo();
 
     /**
      * Get the redirect status.
      *
-     * @return mixed
+     * @return string
      */
     public function getStatus();
 
     /**
-     * Return whether the redirect is secure or not.
+     * Return the secure flag.
      *
-     * @return mixed
+     * @return bool
      */
     public function isSecure();
 }

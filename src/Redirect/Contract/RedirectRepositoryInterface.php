@@ -25,12 +25,4 @@ interface RedirectRepositoryInterface
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function all();
-
-    /**
-     * Delete a redirect.
-     *
-     * @param $id
-     * @return \Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface
-     */
-    public function delete($id);
 }
