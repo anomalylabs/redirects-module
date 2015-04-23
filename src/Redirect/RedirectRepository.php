@@ -1,5 +1,6 @@
 <?php namespace Anomaly\RedirectsModule\Redirect;
 
+use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 
 /**
@@ -28,6 +29,17 @@ class RedirectRepository implements RedirectRepositoryInterface
     public function __construct(RedirectModel $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Find a redirect by ID.
+     *
+     * @param $id
+     * @return null|RedirectInterface
+     */
+    public function find($id)
+    {
+        return $this->model->find($id);
     }
 
     /**

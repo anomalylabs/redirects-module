@@ -1,8 +1,8 @@
 <?php namespace Anomaly\RedirectsModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
+use Anomaly\Streams\Platform\Application\Application;
+use Illuminate\Filesystem\Filesystem;
 
 /**
  * Class RedirectsModuleServiceProvider
@@ -21,10 +21,9 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'admin/redirects'             => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
-        'admin/redirects/create'      => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
-        'admin/redirects/edit/{id}'   => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit',
-        'admin/redirects/delete/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@delete'
+        'admin/redirects'           => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
+        'admin/redirects/create'    => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
+        'admin/redirects/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit'
     ];
 
     /**
@@ -46,14 +45,15 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * The addon listeners.
+     * Map additional routes.
      *
-     * @var array
+     * @param Filesystem  $files
+     * @param Application $application
      */
-    protected $listeners = [
-        'Anomaly\Streams\Platform\Application\Event\ApplicationHasLoaded' => [
-            'Anomaly\RedirectsModule\Redirect\Listener\Redirect'
-        ]
-    ];
-
+    public function map(Filesystem $files, Application $application)
+    {
+        if ($files->exists($routes = $application->getStoragePath('redirects/routes.php'))) {
+            $files->requireOnce($routes);
+        }
+    }
 }

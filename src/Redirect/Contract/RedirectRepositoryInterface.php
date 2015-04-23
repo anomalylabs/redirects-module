@@ -12,6 +12,14 @@ interface RedirectRepositoryInterface
 {
 
     /**
+     * Find a redirect by ID.
+     *
+     * @param $id
+     * @return null|RedirectInterface
+     */
+    public function find($id);
+
+    /**
      * Return all redirects.
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
