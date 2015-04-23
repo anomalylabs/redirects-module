@@ -14,11 +14,11 @@ class RedirectsModule extends Module
 {
 
     /**
-     * The module navigation group.
+     * The module icon.
      *
      * @var string
      */
-    protected $navigation = 'streams::navigation.structure';
+    protected $icon = 'redo';
 
     /**
      * The module's sections.
@@ -27,7 +27,6 @@ class RedirectsModule extends Module
      */
     protected $sections = [
         'redirects' => [
-            'url'     => 'admin/redirects',
             'buttons' => [
                 'new_redirect'
             ]

@@ -19,7 +19,7 @@ return [
     ],
     'secure' => [
         'name'         => 'Secure',
-        'text'         => 'Yes, redirect to a secure URL.',
+        'label'        => 'Redirect to a secure URL?',
         'instructions' => 'Do you want to force a secure connection when redirecting?'
     ],
 ];
