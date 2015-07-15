@@ -16,7 +16,6 @@ return [
     'status' => [
         'name'         => 'Status',
         'instructions' => 'What kind of redirect is this?',
-        'placeholder'  => 'Choose the redirect status...',
         'option'       => [
             '301' => '301 - Permanent Redirect',
             '302' => '302 - Temporary Redirect'

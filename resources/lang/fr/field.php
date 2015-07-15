@@ -16,7 +16,6 @@ return [
     'status' => [
         'name'         => 'Statut',
         'instructions' => 'Quel type de redirection ?',
-        'placeholder'  => 'Choisissez un type de redirection...',
         'option'       => [
             '301' => '301 - Redirection permanente',
             '302' => '302 - Redirection temporaire'

@@ -23,7 +23,8 @@ class AnomalyModuleRedirects_1_0_0_CreateRedirectsFields extends Migration
         'status' => [
             'type'   => 'anomaly.field_type.select',
             'config' => [
-                'options' => [
+                'default_value' => '301',
+                'options'       => [
                     '301' => 'anomaly.module.redirects::field.status.option.301',
                     '302' => 'anomaly.module.redirects::field.status.option.302'
                 ]
