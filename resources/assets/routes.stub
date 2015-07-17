@@ -1,0 +1,5 @@
+<?php
+
+{% for redirect in redirects %}
+Route::any('{{ redirect.from }}', ['uses' => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle', 'redirect' => '{{ redirect.id }}']);
+{% endfor %}

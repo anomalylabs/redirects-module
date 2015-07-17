@@ -18,8 +18,8 @@ class AnomalyModuleRedirects_1_0_0_CreateRedirectsStream extends Migration
      * @var string
      */
     protected $stream = [
-        'slug'   => 'redirects',
-        'locked' => true
+        'slug'         => 'redirects',
+        'title_column' => 'from'
     ];
 
     /**

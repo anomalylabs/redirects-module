@@ -19,6 +19,7 @@ class RedirectTableBuilder extends TableBuilder
      * @var array
      */
     protected $filters = [
+        'status',
         'from',
         'to'
     ];
@@ -32,7 +33,7 @@ class RedirectTableBuilder extends TableBuilder
         'status',
         'from',
         'to',
-        'entry.secure.icon'
+        'entry.secure.badge'
     ];
 
     /**
@@ -51,15 +52,6 @@ class RedirectTableBuilder extends TableBuilder
      */
     protected $actions = [
         'delete'
-    ];
-
-    /**
-     * The table options.
-     *
-     * @var array
-     */
-    protected $options = [
-        'sortable' => true
     ];
 
 }

@@ -3,15 +3,15 @@
 return [
     'from'   => [
         'name'         => 'From',
-        'label'        => 'Redirect from',
+        'label'        => 'Redirect From',
         'placeholder'  => 'foo/bar/{var}',
-        'instructions' => 'Enter an exact path or pattern. For example <strong>foo/bar/{var}</strong> or <strong>foo/bar</strong>.'
+        'instructions' => 'Specify an exact path or pattern to redirect. For example <strong>foo/bar/{var}</strong> or <strong>foo/bar</strong>.'
     ],
     'to'     => [
         'name'         => 'To',
-        'label'        => 'Redirect to',
+        'label'        => 'Redirect To',
         'placeholder'  => 'bar/{var}',
-        'instructions' => 'Enter an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong>.'
+        'instructions' => 'Specify an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong>.'
     ],
     'status' => [
         'name'         => 'Status',
@@ -25,5 +25,5 @@ return [
         'name'         => 'Secure',
         'label'        => 'Redirect to a secure URL?',
         'instructions' => 'Do you want to force a secure connection when redirecting?'
-    ],
+    ]
 ];

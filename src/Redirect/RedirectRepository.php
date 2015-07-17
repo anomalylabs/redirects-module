@@ -1,7 +1,7 @@
 <?php namespace Anomaly\RedirectsModule\Redirect;
 
-use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
+use Anomaly\Streams\Platform\Entry\EntryRepository;
 
 /**
  * Class RedirectRepository
@@ -11,7 +11,7 @@ use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\RedirectsModule\Redirect
  */
-class RedirectRepository implements RedirectRepositoryInterface
+class RedirectRepository extends EntryRepository implements RedirectRepositoryInterface
 {
 
     /**
@@ -29,26 +29,5 @@ class RedirectRepository implements RedirectRepositoryInterface
     public function __construct(RedirectModel $model)
     {
         $this->model = $model;
-    }
-
-    /**
-     * Find a redirect by ID.
-     *
-     * @param $id
-     * @return null|RedirectInterface
-     */
-    public function find($id)
-    {
-        return $this->model->find($id);
-    }
-
-    /**
-     * Return all redirects.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function all()
-    {
-        return $this->model->all();
     }
 }

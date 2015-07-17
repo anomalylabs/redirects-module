@@ -2,15 +2,14 @@
     "name": "anomaly/redirects-module",
     "type": "streams-addon",
     "description": "Manage redirects from one URL to another.",
-    "version": "1.0.0",
-    "license": "MIT",
     "keywords": [
-        "streams-addon",
-        "redirects",
-        "pyrocms",
-        "laravel"
+        "streams module",
+        "streams addon",
+        "module"
     ],
     "homepage": "http://anomaly.is/",
+    "version": "1.0.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "AnomalyLabs, Inc.",
@@ -29,8 +28,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-1.0/master": "1.0.x-dev"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

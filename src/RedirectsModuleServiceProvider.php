@@ -27,16 +27,6 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * The class bindings.
-     *
-     * @var array
-     */
-    protected $bindings = [
-        'Anomaly\RedirectsModule\Redirect\RedirectModel'                        => 'Anomaly\RedirectsModule\Redirect\RedirectModel',
-        'Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel' => 'Anomaly\RedirectsModule\Redirect\RedirectModel'
-    ];
-
-    /**
      * The singleton bindings.
      *
      * @var array
