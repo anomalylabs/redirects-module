@@ -33,7 +33,7 @@ class RedirectTableBuilder extends TableBuilder
         'status',
         'from',
         'to',
-        'entry.secure.badge'
+        'entry.secure.label'
     ];
 
     /**
