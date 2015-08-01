@@ -3,13 +3,13 @@
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class AnomalyModuleRedirects_1_0_0_CreateRedirectsFields
+ * Class AnomalyModuleRedirectsCreateRedirectsFields
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  */
-class AnomalyModuleRedirects_1_0_0_CreateRedirectsFields extends Migration
+class AnomalyModuleRedirectsCreateRedirectsFields extends Migration
 {
 
     /**
