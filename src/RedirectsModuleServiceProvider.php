@@ -1,8 +1,11 @@
 <?php namespace Anomaly\RedirectsModule;
 
+use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
+use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\Streams\Platform\Application\Application;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Routing\Router;
 
 /**
  * Class RedirectsModuleServiceProvider
@@ -36,15 +39,22 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * Map additional routes.
+     * Map the redirect routes.
      *
      * @param Filesystem  $files
      * @param Application $application
      */
-    public function map(Filesystem $files, Application $application)
+    public function map(Router $router, RedirectRepositoryInterface $redirects)
     {
-        if ($files->exists($routes = $application->getStoragePath('redirects/routes.php'))) {
-            $files->requireOnce($routes);
+        /* @var RedirectInterface $redirect */
+        foreach ($redirects->all() as $redirect) {
+            $router->any(
+                $redirect->getFrom(),
+                [
+                    'uses'     => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
+                    'redirect' => $redirect->getId()
+                ]
+            );
         }
     }
 }

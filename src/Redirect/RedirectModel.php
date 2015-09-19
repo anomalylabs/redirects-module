@@ -22,16 +22,6 @@ class RedirectModel extends RedirectsRedirectsEntryModel implements RedirectInte
     protected $cacheMinutes = 99999;
 
     /**
-     * Boot the model.
-     */
-    protected static function boot()
-    {
-        self::observe(app(substr(__CLASS__, 0, -5) . 'Observer'));
-
-        parent::boot();
-    }
-
-    /**
      * Get the redirect from matcher.
      *
      * @return string
