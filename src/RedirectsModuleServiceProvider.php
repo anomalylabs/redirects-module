@@ -51,8 +51,11 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
             $router->any(
                 $redirect->getFrom(),
                 [
-                    'uses'     => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
-                    'redirect' => $redirect->getId()
+                    'uses'        => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
+                    'redirect'    => $redirect->getId(),
+                    'constraints' => [
+                        'any' => '(.*)'
+                    ]
                 ]
             );
         }
