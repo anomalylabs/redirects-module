@@ -74,7 +74,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
                         } else {
                             $path = '/';
                         }
-                        
+
                         $router->any(
                             $path ?: '/',
                             [
@@ -98,7 +98,8 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
                         'uses'        => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
                         'redirect'    => $redirect->getId(),
                         'constraints' => [
-                            'any' => '(.*)'
+                            'any'  => '(.*)',
+                            'path' => '(.*)'
                         ]
                     ]
                 );

@@ -5,13 +5,13 @@ return [
         'name'         => 'From',
         'label'        => 'Redirect From',
         'placeholder'  => 'foo/bar/{var}',
-        'instructions' => 'Specify an exact path or pattern to redirect. For example <strong>foo/bar/{var}</strong> or <strong>foo/bar</strong>.'
+        'instructions' => 'Specify an exact path or pattern to redirect. For example <strong>foo/bar/{var}</strong> or <strong>foo/bar</strong> or <strong>{account}.old.com/{path}</strong>.'
     ],
     'to'     => [
         'name'         => 'To',
         'label'        => 'Redirect To',
         'placeholder'  => 'bar/{var}',
-        'instructions' => 'Specify an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong>.'
+        'instructions' => 'Specify an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong> or <strong>new.com/account/{account}/{path}</strong>.'
     ],
     'status' => [
         'name'         => 'Status',
