@@ -69,8 +69,10 @@ class RedirectResponse
             $this->route->parameters()
         );
 
+        $prefix = isset(parse_url($redirect->getTo())['host']) ? '//' : null;
+
         return $this->redirector->to(
-            $this->parser->parse($redirect->getTo(), $parameters),
+            $this->parser->parse($prefix . $redirect->getTo(), $parameters),
             $redirect->getStatus(),
             [],
             $redirect->isSecure()

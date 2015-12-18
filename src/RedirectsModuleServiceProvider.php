@@ -3,8 +3,7 @@
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
-use Anomaly\Streams\Platform\Application\Application;
-use Illuminate\Filesystem\Filesystem;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 
 /**
@@ -41,23 +40,69 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     /**
      * Map the redirect routes.
      *
-     * @param Filesystem  $files
-     * @param Application $application
+     * @param Router                      $router
+     * @param Request                     $request
+     * @param RedirectRepositoryInterface $redirects
+     * @internal param Filesystem $files
+     * @internal param Application $application
      */
-    public function map(Router $router, RedirectRepositoryInterface $redirects)
+    public function map(Router $router, Request $request, RedirectRepositoryInterface $redirects)
     {
+        if ($request->segment(1) == 'admin') {
+            return;
+        }
+
         /* @var RedirectInterface $redirect */
         foreach ($redirects->all() as $redirect) {
-            $router->any(
-                $redirect->getFrom(),
-                [
-                    'uses'        => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
-                    'redirect'    => $redirect->getId(),
-                    'constraints' => [
-                        'any' => '(.*)'
+
+            $url = parse_url($redirect->getFrom());
+
+            if (isset($url['host'])) {
+
+                /**
+                 * Route a domain redirect in a domain group.
+                 */
+                $router->group(
+                    ['domain' => $url['host']],
+                    function () use ($url, $router, $redirect) {
+
+                        if (str_contains($from = $redirect->getFrom(), '/')) {
+
+                            $parts = explode('/', $from, 2);
+
+                            $path = array_pop($parts);
+                        } else {
+                            $path = '/';
+                        }
+                        
+                        $router->any(
+                            $path ?: '/',
+                            [
+                                'uses'        => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
+                                'redirect'    => $redirect->getId(),
+                                'constraints' => [
+                                    'any' => '(.*)'
+                                ]
+                            ]
+                        );
+                    }
+                );
+            } else {
+
+                /**
+                 * Route a standard redirect.
+                 */
+                $router->any(
+                    $redirect->getFrom(),
+                    [
+                        'uses'        => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
+                        'redirect'    => $redirect->getId(),
+                        'constraints' => [
+                            'any' => '(.*)'
+                        ]
                     ]
-                ]
-            );
+                );
+            }
         }
     }
 }
