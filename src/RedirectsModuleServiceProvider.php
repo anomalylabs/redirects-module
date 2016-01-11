@@ -81,7 +81,8 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
                                 'uses'        => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
                                 'redirect'    => $redirect->getId(),
                                 'constraints' => [
-                                    'any' => '(.*)'
+                                    'any'  => '(.*)',
+                                    'path' => '(.*)'
                                 ]
                             ]
                         );
