@@ -84,7 +84,7 @@ class RedirectResponse
         }
 
         return $this->redirector->to(
-            $this->parser->parse($url, $parameters),
+            rtrim($this->parser->parse($url, $parameters), '/'),
             $redirect->getStatus()
         );
     }
