@@ -11,7 +11,7 @@ return [
         'name'         => 'To',
         'label'        => 'Redirect To',
         'placeholder'  => 'bar/{var}',
-        'instructions' => 'Specify an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong> or <strong>new.com/account/{account}/{path}</strong>.'
+        'instructions' => 'Specify an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong> or <strong>https://new.com/account/{account}/{path}</strong>.'
     ],
     'status' => [
         'name'         => 'Status',
@@ -24,6 +24,7 @@ return [
     'secure' => [
         'name'         => 'Secure',
         'label'        => 'Redirect to a secure URL?',
-        'instructions' => 'Do you want to force a secure connection when redirecting?'
+        'instructions' => 'Do you want to force a secure connection when redirecting?',
+        'warning'      => 'This option is ignored if a protocol is included in the <strong>Redirect To</strong> value.'
     ]
 ];
