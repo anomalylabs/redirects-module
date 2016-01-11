@@ -54,4 +54,14 @@ class RedirectTableBuilder extends TableBuilder
         'delete'
     ];
 
+    /**
+     * The form options.
+     *
+     * @var array
+     */
+    protected $options = [
+        'limit'    => 999,
+        'sortable' => true
+    ];
+
 }

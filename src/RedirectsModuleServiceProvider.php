@@ -55,7 +55,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
         }
 
         /* @var RedirectInterface $redirect */
-        foreach ($redirects->all() as $redirect) {
+        foreach ($redirects->sorted() as $redirect) {
 
             if (!starts_with($parsed = $redirect->getFrom(), ['http://', 'https://', '//'])) {
                 $parsed = $url->to($redirect->getFrom());
