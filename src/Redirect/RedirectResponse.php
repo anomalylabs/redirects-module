@@ -2,6 +2,7 @@
 
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\Streams\Platform\Support\Parser;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Routing\Redirector;
 use Illuminate\Routing\Route;
 
@@ -15,6 +16,13 @@ use Illuminate\Routing\Route;
  */
 class RedirectResponse
 {
+
+    /**
+     * The URL generator.
+     *
+     * @var UrlGenerator
+     */
+    protected $url;
 
     /**
      * The route instance.
@@ -40,12 +48,14 @@ class RedirectResponse
     /**
      * Create a new RedirectResponse instance.
      *
-     * @param Route      $route
-     * @param Parser     $parser
-     * @param Redirector $redirector
+     * @param UrlGenerator $url
+     * @param Route        $route
+     * @param Parser       $parser
+     * @param Redirector   $redirector
      */
-    function __construct(Route $route, Parser $parser, Redirector $redirector)
+    function __construct(UrlGenerator $url, Route $route, Parser $parser, Redirector $redirector)
     {
+        $this->url        = $url;
         $this->route      = $route;
         $this->parser     = $parser;
         $this->redirector = $redirector;
@@ -69,13 +79,13 @@ class RedirectResponse
             $this->route->parameters()
         );
 
-        $prefix = isset(parse_url($redirect->getTo())['host']) ? '//' : null;
+        if (!starts_with($url = $redirect->getTo(), ['http://', 'https://', '//'])) {
+            $url = $this->url->to($redirect->getTo(), [], $redirect->isSecure());
+        }
 
         return $this->redirector->to(
-            $this->parser->parse($prefix . $redirect->getTo(), $parameters),
-            $redirect->getStatus(),
-            [],
-            $redirect->isSecure()
+            $this->parser->parse($url, $parameters),
+            $redirect->getStatus()
         );
     }
 }
