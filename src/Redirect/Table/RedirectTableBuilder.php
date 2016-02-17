@@ -19,9 +19,13 @@ class RedirectTableBuilder extends TableBuilder
      * @var array
      */
     protected $filters = [
-        'status',
-        'from',
-        'to'
+        'search' => [
+            'columns' => [
+                'to',
+                'from'
+            ]
+        ],
+        'status'
     ];
 
     /**
