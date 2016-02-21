@@ -19,7 +19,9 @@ class AnomalyModuleRedirectsCreateRedirectsStream extends Migration
      */
     protected $stream = [
         'slug'         => 'redirects',
-        'title_column' => 'from'
+        'title_column' => 'from',
+        'sortable'     => true,
+        'trashable'    => true
     ];
 
     /**
