@@ -3,7 +3,7 @@
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
-use Illuminate\Contracts\Routing\UrlGenerator;
+use Anomaly\Streams\Platform\Routing\UrlGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 
@@ -48,8 +48,12 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @internal param Filesystem $files
      * @internal param Application $application
      */
-    public function map(UrlGenerator $url, Router $router, Request $request, RedirectRepositoryInterface $redirects)
-    {
+    public function map(
+        UrlGenerator $url,
+        Router $router,
+        Request $request,
+        RedirectRepositoryInterface $redirects
+    ) {
         if ($request->segment(1) == 'admin') {
             return;
         }
@@ -58,7 +62,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
         foreach ($redirects->sorted() as $redirect) {
 
             if (!starts_with($parsed = $redirect->getFrom(), ['http://', 'https://', '//'])) {
-                $parsed = $url->to($redirect->getFrom());
+                $parsed = $url->locale($redirect->getFrom());
             }
 
             $parsed = parse_url(
@@ -110,6 +114,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
                 /**
                  * Route a standard redirect.
                  */
+                dd($redirect->getFrom());
                 $router->any(
                     $redirect->getFrom(),
                     [
