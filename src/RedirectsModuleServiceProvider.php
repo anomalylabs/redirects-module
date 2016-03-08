@@ -114,7 +114,6 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
                 /**
                  * Route a standard redirect.
                  */
-                dd($redirect->getFrom());
                 $router->any(
                     $redirect->getFrom(),
                     [
