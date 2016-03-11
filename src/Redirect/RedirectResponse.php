@@ -107,6 +107,10 @@ class RedirectResponse
             $parsed['scheme'] = $redirect->isSecure() ? 'https' : 'http';
         }
 
+        if (isset($parsed['path']) && !starts_with($parsed['path'], '/')) {
+            $parsed['path'] = '/' . $parsed['path'];
+        }
+
         $url = (isset($parsed['scheme']) ? "{$parsed['scheme']}:" : '') .
             ((isset($parsed['user']) || isset($parsed['host'])) ? '//' : '') .
             (isset($parsed['user']) ? "{$parsed['user']}" : '') .
