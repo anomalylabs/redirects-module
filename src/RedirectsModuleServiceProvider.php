@@ -61,53 +61,32 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
         /* @var RedirectInterface $redirect */
         foreach ($redirects->sorted() as $redirect) {
 
-            if (!starts_with($parsed = $redirect->getFrom(), ['http://', 'https://', '//'])) {
-                $parsed = $url->locale($redirect->getFrom());
-            }
-
             $parsed = parse_url(
                 preg_replace_callback(
                     "/\{[a-z]+\?\}/",
                     function ($matches) {
                         return str_replace('?', '!', $matches[0]);
                     },
-                    $parsed
+                    $redirect->getFrom()
                 )
             );
 
-            if (isset($parsed['host']) && $parsed['host'] == $request->getHost()) {
+            if (isset($parsed['host']) && $request->getHost() == $parsed['host']) {
 
                 /**
                  * Route a domain redirect in a domain group.
                  */
-                $router->group(
-                    ['domain' => $parsed['host']],
-                    function () use ($parsed, $router, $redirect) {
-
-                        $path = ltrim(
-                            preg_replace_callback(
-                                "/\{[a-z]+\!\}/",
-                                function ($matches) {
-                                    return str_replace('!', '?', $matches[0]);
-                                },
-                                $parsed['path']
-                            ),
-                            '/'
-                        );
-
-                        $router->any(
-                            $path ?: '/',
-                            [
-                                'uses'     => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
-                                'redirect' => $redirect->getId()
-                            ]
-                        )->where(
-                            [
-                                'any'  => '(.*)',
-                                'path' => '(.*)'
-                            ]
-                        );
-                    }
+                $router->any(
+                    array_get($parsed, 'path', '{any?}'),
+                    [
+                        'uses'     => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
+                        'redirect' => $redirect->getId()
+                    ]
+                )->where(
+                    [
+                        'any'  => '(.*)',
+                        'path' => '(.*)'
+                    ]
                 );
             } else {
 
