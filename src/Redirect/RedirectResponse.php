@@ -89,13 +89,17 @@ class RedirectResponse
             $this->route->parameters()
         );
 
+        if (!starts_with($url = $redirect->getTo(), ['http://', 'https://', '//'])) {
+            $url = $this->url->to($url);
+        }
+
         $parsed = parse_url(
             preg_replace_callback(
                 "/\{[a-z]+\?\}/",
                 function ($matches) {
                     return str_replace('?', '!', $matches[0]);
                 },
-                $redirect->getTo()
+                $url
             )
         );
 
