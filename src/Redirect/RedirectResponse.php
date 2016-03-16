@@ -103,6 +103,34 @@ class RedirectResponse
             )
         );
 
+        $parsed['path'] = preg_replace_callback(
+            "/\{[a-z]+\!\}/",
+            function ($matches) {
+                return str_replace('!', '', $matches[0]);
+            },
+            array_get($parsed, 'path')
+        );
+
+        $variables = get_defined_vars();
+
+        array_set(
+            $parsed,
+            'path',
+            $this->parser->parse(
+                array_get($parsed, 'path', ''),
+                array_get($variables, 'parameters', [])
+            )
+        );
+
+        array_set(
+            $parsed,
+            'host',
+            $this->parser->parse(
+                array_get($parsed, 'host', ''),
+                array_get($variables, 'parameters', [])
+            )
+        );
+
         if (!isset($parsed['host'])) {
             $parsed['host'] = $this->request->getHost();
         }
