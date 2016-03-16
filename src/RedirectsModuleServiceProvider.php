@@ -71,6 +71,14 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
                 )
             );
 
+            $parsed['path'] = preg_replace_callback(
+                "/\{[a-z]+\!\}/",
+                function ($matches) {
+                    return str_replace('!', '?', $matches[0]);
+                },
+                array_get($parsed, 'path')
+            );
+
             if (isset($parsed['host']) && $request->getHost() == $parsed['host']) {
 
                 /**

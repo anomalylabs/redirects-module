@@ -107,6 +107,10 @@ class RedirectResponse
             $parsed['host'] = $this->request->getHost();
         }
 
+        if (!isset($parsed['port'])) {
+            $parsed['port'] = $this->request->getPort();
+        }
+
         if (!isset($parsed['scheme'])) {
             $parsed['scheme'] = $redirect->isSecure() ? 'https' : 'http';
         }
