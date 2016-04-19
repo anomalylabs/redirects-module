@@ -135,7 +135,7 @@ class RedirectResponse
             $parsed['host'] = $this->request->getHost();
         }
 
-        if (!isset($parsed['port'])) {
+        if (!isset($parsed['port']) && !in_array($this->request->getPort(), ['443', '80'])) {
             $parsed['port'] = $this->request->getPort();
         }
 
