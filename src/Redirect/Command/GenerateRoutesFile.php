@@ -3,7 +3,6 @@
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\RedirectsModule\RedirectsModule;
 use Anomaly\Streams\Platform\Application\Application;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Filesystem\Filesystem;
 
 /**
@@ -12,9 +11,8 @@ use Illuminate\Filesystem\Filesystem;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule\Redirect\Command
  */
-class GenerateRoutesFile implements SelfHandling
+class GenerateRoutesFile
 {
 
     /**
@@ -38,7 +36,7 @@ class GenerateRoutesFile implements SelfHandling
             app('Anomaly\Streams\Platform\Support\String')->render(
                 $files->get($module->getPath('resources/assets/routes.stub')),
                 [
-                    'redirects' => $redirects->all()
+                    'redirects' => $redirects->all(),
                 ]
             )
         );

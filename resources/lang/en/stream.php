@@ -2,6 +2,6 @@
 
 return [
     'redirects' => [
-        'name' => 'Redirects'
-    ]
+        'name' => 'Redirects',
+    ],
 ];

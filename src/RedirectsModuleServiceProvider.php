@@ -13,7 +13,6 @@ use Illuminate\Routing\Router;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule
  */
 class RedirectsModuleServiceProvider extends AddonServiceProvider
 {
@@ -26,7 +25,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     protected $routes = [
         'admin/redirects'           => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
         'admin/redirects/create'    => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
-        'admin/redirects/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit'
+        'admin/redirects/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit',
     ];
 
     /**
@@ -35,7 +34,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        'Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface' => 'Anomaly\RedirectsModule\Redirect\RedirectRepository'
+        'Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface' => 'Anomaly\RedirectsModule\Redirect\RedirectRepository',
     ];
 
     /**
@@ -81,36 +80,36 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
 
             if (isset($parsed['host']) && $request->getHost() == $parsed['host']) {
 
-                /**
+                /*
                  * Route a domain redirect in a domain group.
                  */
                 $router->any(
                     array_get($parsed, 'path', '{any?}'),
                     [
                         'uses'     => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
-                        'redirect' => $redirect->getId()
+                        'redirect' => $redirect->getId(),
                     ]
                 )->where(
                     [
                         'any'  => '(.*)',
-                        'path' => '(.*)'
+                        'path' => '(.*)',
                     ]
                 );
             } else {
 
-                /**
+                /*
                  * Route a standard redirect.
                  */
                 $router->any(
                     $redirect->getFrom(),
                     [
                         'uses'     => 'Anomaly\RedirectsModule\Http\Controller\RedirectsController@handle',
-                        'redirect' => $redirect->getId()
+                        'redirect' => $redirect->getId(),
                     ]
                 )->where(
                     [
                         'any'  => '(.*)',
-                        'path' => '(.*)'
+                        'path' => '(.*)',
                     ]
                 );
             }

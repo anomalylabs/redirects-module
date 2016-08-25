@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Addon\Module\Module;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule
  */
 class RedirectsModule extends Module
 {
@@ -28,9 +27,9 @@ class RedirectsModule extends Module
     protected $sections = [
         'redirects' => [
             'buttons' => [
-                'new_redirect'
-            ]
-        ]
+                'new_redirect',
+            ],
+        ],
     ];
 
 }

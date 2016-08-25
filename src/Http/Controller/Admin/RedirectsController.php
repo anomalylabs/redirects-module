@@ -10,7 +10,6 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule\Http\Controller
  */
 class RedirectsController extends AdminController
 {
@@ -18,7 +17,7 @@ class RedirectsController extends AdminController
     /**
      * Display an index of existing redirects.
      *
-     * @param RedirectTableBuilder $table
+     * @param  RedirectTableBuilder                                             $table
      * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
      */
     public function index(RedirectTableBuilder $table)
@@ -29,7 +28,7 @@ class RedirectsController extends AdminController
     /**
      * Create a new redirect.
      *
-     * @param RedirectFormBuilder $form
+     * @param  RedirectFormBuilder                                              $form
      * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
      */
     public function create(RedirectFormBuilder $form)
@@ -40,8 +39,8 @@ class RedirectsController extends AdminController
     /**
      * Edit an existing redirect.
      *
-     * @param RedirectFormBuilder $form
-     * @param                     $id
+     * @param  RedirectFormBuilder                                              $form
+     * @param                                                                   $id
      * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
      */
     public function edit(RedirectFormBuilder $form, $id)

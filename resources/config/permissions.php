@@ -4,6 +4,6 @@ return [
     'redirects' => [
         'read',
         'write',
-        'delete'
-    ]
+        'delete',
+    ],
 ];

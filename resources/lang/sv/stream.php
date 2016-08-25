@@ -2,6 +2,6 @@
 
 return [
     'redirects' => [
-        'name' => 'Vidarebefordringar'
-    ]
+        'name' => 'Vidarebefordringar',
+    ],
 ];

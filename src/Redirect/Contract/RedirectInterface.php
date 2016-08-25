@@ -1,6 +1,6 @@
 <?php namespace Anomaly\RedirectsModule\Redirect\Contract;
 
-/**
+/*
  * Interface RedirectInterface
  *
  * @link          http://pyrocms.com/
@@ -16,7 +16,6 @@ use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule\Redirect\Contract
  */
 interface RedirectInterface extends EntryInterface
 {

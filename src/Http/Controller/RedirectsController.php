@@ -11,7 +11,6 @@ use Illuminate\Routing\Route;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule\Http\Controller
  */
 class RedirectsController extends PublicController
 {
@@ -19,9 +18,9 @@ class RedirectsController extends PublicController
     /**
      * Handle the redirect.
      *
-     * @param Route                       $route
-     * @param RedirectResponse            $response
-     * @param RedirectRepositoryInterface $redirects
+     * @param  Route                             $route
+     * @param  RedirectResponse                  $response
+     * @param  RedirectRepositoryInterface       $redirects
      * @return \Illuminate\Http\RedirectResponse
      */
     public function handle(Route $route, RedirectResponse $response, RedirectRepositoryInterface $redirects)

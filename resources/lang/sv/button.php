@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'new_redirect' => 'Ny Vidarebefordring'
+    'new_redirect' => 'Ny Vidarebefordring',
 ];

@@ -3,10 +3,10 @@
 return [
     'redirects' => [
         'name' => 'Átirányítás',
-    'option' => [
+    'option'   => [
         'read' => 'Hozzáférhet az átirányításokhoz?',
-    'write' => 'Létrehozhat és szerkeszthet átirányítást?',
-    'delete' => 'Törölhet átirányítást?',
+    'write'    => 'Létrehozhat és szerkeszthet átirányítást?',
+    'delete'   => 'Törölhet átirányítást?',
     ],
     ],
 ];

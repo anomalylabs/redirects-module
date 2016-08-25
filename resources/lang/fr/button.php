@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'new_redirect' => 'Nouvelle redirection'
+    'new_redirect' => 'Nouvelle redirection',
 ];

@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule\Redirect\Table
  */
 class RedirectTableBuilder extends TableBuilder
 {
@@ -22,10 +21,10 @@ class RedirectTableBuilder extends TableBuilder
         'search' => [
             'columns' => [
                 'to',
-                'from'
-            ]
+                'from',
+            ],
         ],
-        'status'
+        'status',
     ];
 
     /**
@@ -37,7 +36,7 @@ class RedirectTableBuilder extends TableBuilder
         'status',
         'from',
         'to',
-        'entry.secure.label'
+        'entry.secure.label',
     ];
 
     /**
@@ -46,7 +45,7 @@ class RedirectTableBuilder extends TableBuilder
      * @var string
      */
     protected $buttons = [
-        'edit'
+        'edit',
     ];
 
     /**
@@ -55,7 +54,7 @@ class RedirectTableBuilder extends TableBuilder
      * @var array
      */
     protected $actions = [
-        'delete'
+        'delete',
     ];
 
     /**
@@ -65,7 +64,7 @@ class RedirectTableBuilder extends TableBuilder
      */
     protected $options = [
         'limit'    => 999,
-        'sortable' => true
+        'sortable' => true,
     ];
 
 }

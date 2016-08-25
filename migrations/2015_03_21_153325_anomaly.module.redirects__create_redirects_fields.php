@@ -26,11 +26,11 @@ class AnomalyModuleRedirectsCreateRedirectsFields extends Migration
                 'default_value' => '301',
                 'options'       => [
                     '301' => 'anomaly.module.redirects::field.status.option.301',
-                    '302' => 'anomaly.module.redirects::field.status.option.302'
-                ]
-            ]
+                    '302' => 'anomaly.module.redirects::field.status.option.302',
+                ],
+            ],
         ],
-        'secure' => 'anomaly.field_type.boolean'
+        'secure' => 'anomaly.field_type.boolean',
     ];
 
 }

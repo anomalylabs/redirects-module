@@ -21,7 +21,7 @@ class AnomalyModuleRedirectsCreateRedirectsStream extends Migration
         'slug'         => 'redirects',
         'title_column' => 'from',
         'sortable'     => true,
-        'trashable'    => true
+        'trashable'    => true,
     ];
 
     /**
@@ -32,15 +32,15 @@ class AnomalyModuleRedirectsCreateRedirectsStream extends Migration
     protected $assignments = [
         'from'   => [
             'unique'   => true,
-            'required' => true
+            'required' => true,
         ],
         'to'     => [
-            'required' => true
+            'required' => true,
         ],
         'status' => [
-            'required' => true
+            'required' => true,
         ],
-        'secure'
+        'secure',
     ];
 
 }

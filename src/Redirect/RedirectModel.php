@@ -9,7 +9,6 @@ use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RedirectsModule\Redirect
  */
 class RedirectModel extends RedirectsRedirectsEntryModel implements RedirectInterface
 {
