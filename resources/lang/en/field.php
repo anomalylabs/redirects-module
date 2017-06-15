@@ -6,6 +6,7 @@ return [
         'label'        => 'Redirect From',
         'placeholder'  => 'foo/bar/{var}',
         'instructions' => 'Specify an exact path or pattern to redirect. For example <strong>foo/bar/{var}</strong> or <strong>foo/bar</strong> or <strong>http://{account}.old.com/{path}</strong>.',
+        'warning'      => 'Do not include locale hints.',
     ],
     'to'     => [
         'name'         => 'To',
