@@ -73,7 +73,7 @@ class RedirectResponse
     /**
      * Create a new Redirect response.
      *
-     * @param  RedirectInterface                 $redirect
+     * @param  RedirectInterface $redirect
      * @return \Illuminate\Http\RedirectResponse
      */
     public function create(RedirectInterface $redirect)
@@ -129,6 +129,19 @@ class RedirectResponse
                 array_get($variables, 'parameters', [])
             )
         );
+
+        array_set(
+            $parsed,
+            'query',
+            $this->parser->parse(
+                array_get($parsed, 'query', '')
+            )
+        );
+
+        parse_str($parsed['query'], $parsed['query']);
+        parse_str($this->request->getQueryString(), $query);
+
+        $parsed['query'] = http_build_query(array_merge($parsed['query'], $query));
 
         if (!isset($parsed['host'])) {
             $parsed['host'] = $this->request->getHost();
