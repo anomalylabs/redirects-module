@@ -159,16 +159,16 @@ class RedirectResponse
             $parsed['path'] = '/' . $parsed['path'];
         }
 
-        $url = (isset($parsed['scheme']) ? "{$parsed['scheme']}:" : '') .
+        $url = (($scheme = array_get($parsed, 'scheme')) ? "{$scheme}:" : '') .
             ((isset($parsed['user']) || isset($parsed['host'])) ? '//' : '') .
-            (isset($parsed['user']) ? "{$parsed['user']}" : '') .
-            (isset($parsed['pass']) ? ":{$parsed['pass']}" : '') .
-            (isset($parsed['user']) ? '@' : '') .
-            (isset($parsed['host']) ? "{$parsed['host']}" : '') .
-            (isset($parsed['port']) ? ":{$parsed['port']}" : '') .
-            (isset($parsed['path']) ? "{$parsed['path']}" : '') .
-            (isset($parsed['query']) ? "?{$parsed['query']}" : '') .
-            (isset($parsed['fragment']) ? "#{$parsed['fragment']}" : '');
+            (($user = array_get($parsed, 'user')) ? "{$user}" : '') .
+            (($pass = array_get($parsed, 'pass')) ? ":{$pass}" : '') .
+            (($user = array_get($parsed, 'user')) ? '@' : '') .
+            (($host = array_get($parsed, 'host')) ? "{$host}" : '') .
+            (($port = array_get($parsed, 'port')) ? ":{$port}" : '') .
+            (($path = array_get($parsed, 'path')) ? "{$path}" : '') .
+            (($query = array_get($parsed, 'query')) ? "?{$query}" : '') .
+            (($fragment = array_get($parsed, 'fragment')) ? "#{$fragment}" : '');
 
         return $this->redirector->to(
             rtrim($this->parser->parse($url, $parameters), '/'),
