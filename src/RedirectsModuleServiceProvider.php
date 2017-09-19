@@ -1,8 +1,10 @@
 <?php namespace Anomaly\RedirectsModule;
 
-use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
+use Anomaly\RedirectsModule\Redirect\RedirectModel;
+use Anomaly\RedirectsModule\Redirect\RedirectRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
 use Anomaly\Streams\Platform\Routing\UrlGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
@@ -29,12 +31,21 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
+     * The addon bindings.
+     *
+     * @var array
+     */
+    protected $bindings = [
+        RedirectsRedirectsEntryModel::class => RedirectModel::class,
+    ];
+
+    /**
      * The singleton bindings.
      *
      * @var array
      */
     protected $singletons = [
-        'Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface' => 'Anomaly\RedirectsModule\Redirect\RedirectRepository',
+        RedirectRepositoryInterface::class => RedirectRepository::class,
     ];
 
     /**
