@@ -60,23 +60,9 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
         /* @var RedirectInterface $redirect */
         foreach ($redirects->sorted() as $redirect) {
 
-            $parsed = parse_url(
-                preg_replace_callback(
-                    "/\{[a-z]+\?\}/",
-                    function ($matches) {
-                        return str_replace('?', '!', $matches[0]);
-                    },
-                    $redirect->getFrom()
-                )
-            );
+            $parsed = parse_url(str_replace('?}', '!}', $redirect->getFrom()));
 
-            $parsed['path'] = preg_replace_callback(
-                "/\{[a-z]+\!\}/",
-                function ($matches) {
-                    return str_replace('!', '?', $matches[0]);
-                },
-                array_get($parsed, 'path')
-            );
+            $parsed['path'] = str_replace('!}', '?}', array_get($parsed, 'path'));
 
             if (isset($parsed['host']) && $request->getHost() == $parsed['host']) {
 
