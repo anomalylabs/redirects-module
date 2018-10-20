@@ -1,15 +1,16 @@
 <?php namespace Anomaly\RedirectsModule;
 
-use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\RedirectsModule\Domain\Contract\DomainRepositoryInterface;
-use Anomaly\RedirectsModule\Domain\DomainRepository;
-use Anomaly\Streams\Platform\Model\Redirects\RedirectsDomainsEntryModel;
 use Anomaly\RedirectsModule\Domain\DomainModel;
+use Anomaly\RedirectsModule\Domain\DomainRepository;
+use Anomaly\RedirectsModule\Http\Middleware\RedirectDomains;
+use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
+use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\RedirectsModule\Redirect\RedirectModel;
 use Anomaly\RedirectsModule\Redirect\RedirectRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Model\Redirects\RedirectsDomainsEntryModel;
 use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
-use Anomaly\Streams\Platform\Routing\UrlGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 
@@ -24,6 +25,15 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
 {
 
     /**
+     * The addon middleware.
+     *
+     * @var array
+     */
+    protected $middleware = [
+        RedirectDomains::class,
+    ];
+
+    /**
      * The addon routes.
      *
      * @var array
@@ -32,9 +42,9 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
         'admin/redirects/domains'           => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@index',
         'admin/redirects/domains/create'    => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@create',
         'admin/redirects/domains/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@edit',
-        'admin/redirects'           => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
-        'admin/redirects/create'    => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
-        'admin/redirects/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit',
+        'admin/redirects'                   => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
+        'admin/redirects/create'            => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
+        'admin/redirects/edit/{id}'         => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit',
     ];
 
     /**
@@ -43,7 +53,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
-        RedirectsDomainsEntryModel::class => DomainModel::class,
+        RedirectsDomainsEntryModel::class   => DomainModel::class,
         RedirectsRedirectsEntryModel::class => RedirectModel::class,
     ];
 
@@ -53,26 +63,23 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        DomainRepositoryInterface::class => DomainRepository::class,
+        DomainRepositoryInterface::class   => DomainRepository::class,
         RedirectRepositoryInterface::class => RedirectRepository::class,
     ];
 
     /**
      * Map the redirect routes.
      *
-     * @param UrlGenerator                $url
-     * @param Router                      $router
-     * @param Request                     $request
+     * @param Router $router
+     * @param Request $request
      * @param RedirectRepositoryInterface $redirects
-     * @internal param Filesystem $files
-     * @internal param Application $application
      */
     public function map(
-        UrlGenerator $url,
         Router $router,
         Request $request,
         RedirectRepositoryInterface $redirects
     ) {
+
         if ($request->segment(1) == 'admin') {
             return;
         }

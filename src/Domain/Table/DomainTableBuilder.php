@@ -2,60 +2,69 @@
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
+/**
+ * Class DomainTableBuilder
+ *
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
+ */
 class DomainTableBuilder extends TableBuilder
 {
 
     /**
-     * The table views.
-     *
-     * @var array|string
-     */
-    protected $views = [];
-
-    /**
      * The table filters.
      *
-     * @var array|string
+     * @var array
      */
-    protected $filters = [];
+    protected $filters = [
+        'search' => [
+            'columns' => [
+                'to',
+                'from',
+            ],
+        ],
+        'status',
+    ];
 
     /**
      * The table columns.
      *
-     * @var array|string
+     * @var string
      */
-    protected $columns = [];
+    protected $columns = [
+        'status',
+        'from',
+        'to',
+        'entry.secure.label',
+    ];
 
     /**
      * The table buttons.
      *
-     * @var array|string
+     * @var string
      */
     protected $buttons = [
-        'edit'
+        'edit',
     ];
 
     /**
      * The table actions.
      *
-     * @var array|string
+     * @var array
      */
     protected $actions = [
-        'delete'
+        'delete',
     ];
 
     /**
-     * The table options.
+     * The form options.
      *
      * @var array
      */
-    protected $options = [];
-
-    /**
-     * The table assets.
-     *
-     * @var array
-     */
-    protected $assets = [];
+    protected $options = [
+        'limit'    => 999,
+        'sortable' => true,
+    ];
 
 }

@@ -30,10 +30,11 @@ class AnomalyModuleRedirectsCreateDomainsStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'domain' => [
+        'from'   => [
             'unique'   => true,
             'required' => true,
         ],
+        'to',
         'status' => [
             'required' => true,
         ],
