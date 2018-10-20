@@ -1,6 +1,10 @@
 <?php namespace Anomaly\RedirectsModule;
 
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
+use Anomaly\RedirectsModule\Domain\Contract\DomainRepositoryInterface;
+use Anomaly\RedirectsModule\Domain\DomainRepository;
+use Anomaly\Streams\Platform\Model\Redirects\RedirectsDomainsEntryModel;
+use Anomaly\RedirectsModule\Domain\DomainModel;
 use Anomaly\RedirectsModule\Redirect\RedirectModel;
 use Anomaly\RedirectsModule\Redirect\RedirectRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
@@ -25,6 +29,9 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
+        'admin/redirects/domains'           => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@index',
+        'admin/redirects/domains/create'    => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@create',
+        'admin/redirects/domains/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@edit',
         'admin/redirects'           => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
         'admin/redirects/create'    => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
         'admin/redirects/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit',
@@ -36,6 +43,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
+        RedirectsDomainsEntryModel::class => DomainModel::class,
         RedirectsRedirectsEntryModel::class => RedirectModel::class,
     ];
 
@@ -45,6 +53,7 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
+        DomainRepositoryInterface::class => DomainRepository::class,
         RedirectRepositoryInterface::class => RedirectRepository::class,
     ];
 

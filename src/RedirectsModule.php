@@ -30,6 +30,11 @@ class RedirectsModule extends Module
                 'new_redirect',
             ],
         ],
+        'domains' => [
+            'buttons' => [
+                'new_domain',
+            ],
+        ],
     ];
 
 }

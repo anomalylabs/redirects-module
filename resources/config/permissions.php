@@ -6,4 +6,9 @@ return [
         'write',
         'delete',
     ],
+    'domains' => [
+        'read',
+        'write',
+        'delete',
+    ],
 ];
