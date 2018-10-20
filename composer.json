@@ -20,6 +20,9 @@
     "support": {
         "email": "support@pyrocms.com"
     },
+    "require": {
+        "anomaly/streams-platform": "^1.4"
+    },
     "autoload": {
         "psr-4": {
             "Anomaly\\RedirectsModule\\": "src/"
