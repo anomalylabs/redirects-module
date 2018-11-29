@@ -1,11 +1,11 @@
 <?php namespace Anomaly\RedirectsModule;
 
+use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\RedirectsModule\Redirect\RedirectModel;
 use Anomaly\RedirectsModule\Redirect\RedirectRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
-use Anomaly\Streams\Platform\Routing\UrlGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 
@@ -51,22 +51,17 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     /**
      * Map the redirect routes.
      *
-     * @param UrlGenerator                $url
-     * @param Router                      $router
-     * @param Request                     $request
+     * @param Router $router
+     * @param Request $request
      * @param RedirectRepositoryInterface $redirects
      * @internal param Filesystem $files
      * @internal param Application $application
      */
     public function map(
-        UrlGenerator $url,
         Router $router,
         Request $request,
         RedirectRepositoryInterface $redirects
     ) {
-        if ($request->segment(1) == 'admin') {
-            return;
-        }
 
         /* @var RedirectInterface $redirect */
         foreach ($redirects->sorted() as $redirect) {
