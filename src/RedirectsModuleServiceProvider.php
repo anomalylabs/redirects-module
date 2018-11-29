@@ -80,10 +80,6 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
         RedirectRepositoryInterface $redirects
     ) {
 
-        if ($request->segment(1) == 'admin') {
-            return;
-        }
-
         /* @var RedirectInterface $redirect */
         foreach ($redirects->sorted() as $redirect) {
 
