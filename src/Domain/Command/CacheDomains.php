@@ -1,5 +1,6 @@
 <?php namespace Anomaly\RedirectsModule\Domain\Command;
 
+use Anomaly\RedirectsModule\Domain\Contract\DomainInterface;
 use Anomaly\RedirectsModule\Domain\Contract\DomainRepositoryInterface;
 
 /**
@@ -19,14 +20,19 @@ class CacheDomains
      */
     public function handle(DomainRepositoryInterface $domains)
     {
-        $domains->cache(
+        $domains->cacheForever(
             'anomaly.module.redirects::domains.array',
             function () use ($domains) {
 
                 $collection = $domains->all();
 
                 return array_combine(
-                    $collection->pluck('from')->all(),
+                    array_map(
+                        function (DomainInterface $domain) {
+                            return $domain->getFrom();
+                        },
+                        $collection->all()
+                    ),
                     $collection->toArray()
                 );
             }

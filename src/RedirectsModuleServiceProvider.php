@@ -1,6 +1,7 @@
 <?php namespace Anomaly\RedirectsModule;
 
 use Anomaly\RedirectsModule\Domain\Command\CacheDomains;
+use Anomaly\RedirectsModule\Domain\Command\DumpDomains;
 use Anomaly\RedirectsModule\Domain\Contract\DomainRepositoryInterface;
 use Anomaly\RedirectsModule\Domain\DomainModel;
 use Anomaly\RedirectsModule\Domain\DomainRepository;
@@ -71,8 +72,9 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      */
     public function boot()
     {
-        dispatch_now(new CacheDomains());
         dispatch_now(new DumpRedirects());
+        dispatch_now(new CacheDomains());
+        dispatch_now(new DumpDomains());
     }
 
     /**

@@ -22,7 +22,7 @@ class RedirectDomains
      */
     public function handle(Request $request, Closure $next)
     {
-        $domains = cache('anomaly.module.redirects::domains.array');
+        $domains = cache('anomaly.module.redirects::domains.array', []);
 
         if ($redirect = array_get($domains, $_SERVER['HTTP_HOST'])) {
             return redirect('http://' . $redirect['to'], $redirect['status'], [], ($redirect['secure']));
