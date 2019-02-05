@@ -9,7 +9,7 @@ return [
             'domains'   => 'olddomain.com',
         ],
         'instructions' => [
-            'redirects' => 'Specify an exact path or pattern to redirect. For example <strong>foo/bar/{var}</strong> or <strong>foo/bar</strong> or <strong>http://{account}.old.com/{path}</strong>.',
+            'redirects' => 'Specify an exact path or pattern to redirect. For example <strong>foo/bar/{var}</strong> or <strong>foo/bar</strong>.',
             'domains'   => 'Specify the domain to redirect. Include any prefix and a port if not standard.',
         ],
         'warning'      => [
@@ -25,7 +25,7 @@ return [
             'domains'   => 'newdomain.com',
         ],
         'instructions' => [
-            'redirects' => 'Specify an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong> or <strong>https://new.com/account/{account}/{path}</strong>.',
+            'redirects' => 'Specify an exact path, pattern replacement or URL to redirect to. For example <strong>bar/{var}</strong> or <strong>bar/baz</strong>',
             'domains'   => 'Specify the domain to redirect to. Include any prefix and a port if not standard.',
         ],
         'warning'      => [

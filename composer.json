@@ -15,13 +15,19 @@
             "email": "support@pyrocms.com",
             "homepage": "http://pyrocms.com/",
             "role": "Owner"
+        },
+        {
+            "name": "Ryan Thompson",
+            "email": "ryan@pyrocms.com",
+            "homepage": "http://ryanthepyro.com/",
+            "role": "Developer"
         }
     ],
     "support": {
         "email": "support@pyrocms.com"
     },
     "require": {
-        "anomaly/streams-platform": "^1.4"
+        "anomaly/streams-platform": "^1.6"
     },
     "autoload": {
         "psr-4": {

@@ -9,7 +9,7 @@ return [
             'delete' => 'Can delete redirects?',
         ],
     ],
-    'domains' => [
+    'domains'   => [
         'name'   => 'Domains',
         'option' => [
             'read'   => 'Can read domains?',
