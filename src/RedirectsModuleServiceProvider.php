@@ -17,9 +17,9 @@ use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
 /**
  * Class RedirectsModuleServiceProvider
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class RedirectsModuleServiceProvider extends AddonServiceProvider
 {
@@ -51,20 +51,6 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     protected $singletons = [
         DomainRepositoryInterface::class   => DomainRepository::class,
         RedirectRepositoryInterface::class => RedirectRepository::class,
-    ];
-
-    /**
-     * The addon routes.
-     *
-     * @var array
-     */
-    protected $routes = [
-        'admin/redirects'                   => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@index',
-        'admin/redirects/create'            => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@create',
-        'admin/redirects/edit/{id}'         => 'Anomaly\RedirectsModule\Http\Controller\Admin\RedirectsController@edit',
-        'admin/redirects/domains'           => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@index',
-        'admin/redirects/domains/create'    => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@create',
-        'admin/redirects/domains/edit/{id}' => 'Anomaly\RedirectsModule\Http\Controller\Admin\DomainsController@edit',
     ];
 
     /**
