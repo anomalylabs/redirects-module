@@ -1,6 +1,6 @@
 <?php namespace Anomaly\RedirectsModule;
 
-use Anomaly\RedirectsModule\Domain\Command\CacheDomains;
+use Anomaly\RedirectsModule\Console\Dump;
 use Anomaly\RedirectsModule\Domain\Command\DumpDomains;
 use Anomaly\RedirectsModule\Domain\Contract\DomainRepositoryInterface;
 use Anomaly\RedirectsModule\Domain\DomainModel;
@@ -23,6 +23,15 @@ use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
  */
 class RedirectsModuleServiceProvider extends AddonServiceProvider
 {
+
+    /**
+     * The addon commands.
+     *
+     * @var array
+     */
+    protected $commands = [
+        Dump::class,
+    ];
 
     /**
      * The addon middleware.
@@ -54,21 +63,19 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * Boot the addon.
-     */
-    public function boot()
-    {
-        dispatch_now(new DumpRedirects());
-        dispatch_now(new CacheDomains());
-        dispatch_now(new DumpDomains());
-    }
-
-    /**
      * Load additional routes.
      */
     public function map()
     {
-        require app_storage_path('redirects/routes.php');
+        if (!file_exists($routes = app_storage_path('redirects/routes.php'))) {
+            dispatch_now(new DumpRedirects());
+        }
+
+        if (!file_exists(app_storage_path('redirects/domains.php'))) {
+            dispatch_now(new DumpDomains());
+        }
+
+        require $routes;
     }
 
 }

@@ -3,9 +3,7 @@
     "type": "streams-addon",
     "description": "Manage redirects from one URL to another.",
     "keywords": [
-        "streams module",
-        "streams addon",
-        "module"
+        "redirecting"
     ],
     "homepage": "http://pyrocms.com/",
     "license": "MIT",

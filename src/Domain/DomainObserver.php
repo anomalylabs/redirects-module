@@ -1,29 +1,28 @@
-<?php namespace Anomaly\RedirectsModule\Redirect;
+<?php namespace Anomaly\RedirectsModule\Domain;
 
-use Anomaly\RedirectsModule\Redirect\Command\DumpRedirects;
+use Anomaly\RedirectsModule\Domain\Command\DumpDomains;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryObserver;
 
 /**
- * Class RedirectObserver
+ * Class DomainObserver
  *
  * @link   http://pyrocms.com/
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class RedirectObserver extends EntryObserver
+class DomainObserver extends EntryObserver
 {
 
     /**
-     * Fired just after an entry is saved.
+     * Fired just after saving.
      *
      * @param EntryInterface $entry
      */
     public function saved(EntryInterface $entry)
     {
-        dispatch_now(new DumpRedirects());
+        dispatch_now(new DumpDomains());
 
         parent::saved($entry);
     }
-
 }

@@ -2,6 +2,7 @@
 
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
+use Anomaly\Streams\Platform\Routing\Command\CacheRoutes;
 
 /**
  * Class DumpRedirects
@@ -18,9 +19,7 @@ class DumpRedirects
      */
     public function handle()
     {
-        if (file_exists($file = app_storage_path('redirects/routes.php'))) {
-            return;
-        };
+        $file = app_storage_path('redirects/routes.php');
 
         if (!is_dir(dirname($file))) {
             mkdir(dirname($file), 0777, true);
@@ -47,5 +46,7 @@ class DumpRedirects
         );
 
         file_put_contents($file, "<?php\n\n" . $content);
+
+        dispatch_now(new CacheRoutes());
     }
 }

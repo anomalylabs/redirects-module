@@ -22,10 +22,21 @@ class RedirectDomains
      */
     public function handle(Request $request, Closure $next)
     {
-        $domains = cache('anomaly.module.redirects::domains.array', []);
+        if (!$domains = require app_storage_path('redirects/domains.php')) {
+            return $next($request);
+        }
 
-        if ($redirect = array_get($domains, $_SERVER['HTTP_HOST'])) {
-            return redirect('http://' . $redirect['to'], $redirect['status'], [], ($redirect['secure']));
+        if ($redirect = array_get($domains, $request->getHttpHost())) {
+            return redirect(
+                ($request->isSecure() ? 'https' : 'http') . '://' . array_get(
+                    $redirect,
+                    'to',
+                    config('streams::system.domain')
+                ),
+                $redirect['status'],
+                [],
+                config('streams::system.force_ssl', false) ?: $redirect['secure']
+            );
         }
 
         return $next($request);

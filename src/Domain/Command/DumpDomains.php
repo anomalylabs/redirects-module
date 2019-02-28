@@ -1,5 +1,8 @@
 <?php namespace Anomaly\RedirectsModule\Domain\Command;
 
+use Anomaly\RedirectsModule\Domain\Contract\DomainInterface;
+use Anomaly\RedirectsModule\Domain\Contract\DomainRepositoryInterface;
+
 /**
  * Class DumpDomains
  *
@@ -12,20 +15,27 @@ class DumpDomains
 
     /**
      * Handle the command.
+     *
+     * @param DomainRepositoryInterface $domains
      */
-    public function handle()
+    public function handle(DomainRepositoryInterface $domains)
     {
-        if (file_exists($file = base_path('bootstrap/cache/domains.php'))) {
-            return;
-        };
+        $file = app_storage_path('redirects/domains.php');
+
+        if (!is_dir(dirname($file))) {
+            mkdir(dirname($file), 0777, true);
+        }
 
         $content = join(
             ",",
             array_map(
-                function ($domain) {
-                    return "'{$domain}'";
+                function (DomainInterface $domain) {
+
+                    $secure = $domain->isSecure() ? 'true' : 'false';
+
+                    return "'{$domain->getFrom()}' => ['to' => '{$domain->getTo()}', 'status' => {$domain->getStatus()}, 'secure' => {$secure}]";
                 },
-                array_keys(cache('anomaly.module.redirects::domains.array', []))
+                $domains->all()->all()
             )
         );
 
