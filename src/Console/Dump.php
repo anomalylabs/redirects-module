@@ -30,6 +30,6 @@ class Dump extends Command
         $this->info('Wrote: ' . app_storage_path('redirects/domains.php'));
 
         dispatch_now(new DumpRedirects());
-        $this->info('Wrote: ' . app_storage_path('redirects/redirects.php'));
+        $this->info('Wrote: ' . app_storage_path('redirects/routes.php'));
     }
 }
