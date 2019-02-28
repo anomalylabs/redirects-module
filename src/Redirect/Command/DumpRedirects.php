@@ -16,17 +16,16 @@ class DumpRedirects
 
     /**
      * Handle the command.
+     *
+     * @param RedirectRepositoryInterface $redirects
      */
-    public function handle()
+    public function handle(RedirectRepositoryInterface $redirects)
     {
         $file = app_storage_path('redirects/routes.php');
 
         if (!is_dir(dirname($file))) {
             mkdir(dirname($file), 0777, true);
         }
-
-        /* @var RedirectRepositoryInterface $redirects */
-        $redirects = app(RedirectRepositoryInterface::class);
 
         $content = join(
             "\n\n",
