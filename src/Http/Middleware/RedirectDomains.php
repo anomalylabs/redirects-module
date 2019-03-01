@@ -22,7 +22,11 @@ class RedirectDomains
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$domains = require app_storage_path('redirects/domains.php')) {
+        if (!file_exists($domains = app_storage_path('redirects/domains.php'))) {
+            return $next($request);
+        }
+
+        if (!$domains = require $domains) {
             return $next($request);
         }
 
