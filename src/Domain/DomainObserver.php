@@ -21,8 +21,8 @@ class DomainObserver extends EntryObserver
      */
     public function saved(EntryInterface $entry)
     {
-        dispatch_now(new DumpDomains());
-
         parent::saved($entry);
+
+        dispatch_now(new DumpDomains());
     }
 }

@@ -21,9 +21,9 @@ class RedirectObserver extends EntryObserver
      */
     public function saved(EntryInterface $entry)
     {
-        dispatch_now(new DumpRedirects());
-
         parent::saved($entry);
+
+        dispatch_now(new DumpRedirects());
     }
 
 }
