@@ -27,7 +27,9 @@ class RedirectsController extends PublicController
     public function handle(Route $route, RedirectResponse $response, RedirectRepositoryInterface $redirects)
     {
         /* @var RedirectInterface $redirect */
-        $redirect = $redirects->find(array_get($route->getAction(), 'redirect'));
+        if (!$redirect = $redirects->find(array_get($route->getAction(), 'redirect'))) {
+            abort(404);
+        }
 
         return $response->create($redirect);
     }
