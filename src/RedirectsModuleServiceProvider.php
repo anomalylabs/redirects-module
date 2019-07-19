@@ -6,11 +6,13 @@ use Anomaly\RedirectsModule\Domain\Contract\DomainRepositoryInterface;
 use Anomaly\RedirectsModule\Domain\DomainModel;
 use Anomaly\RedirectsModule\Domain\DomainRepository;
 use Anomaly\RedirectsModule\Http\Middleware\RedirectDomains;
+use Anomaly\RedirectsModule\Listener\RefreshRedirectsModule;
 use Anomaly\RedirectsModule\Redirect\Command\DumpRedirects;
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectRepositoryInterface;
 use Anomaly\RedirectsModule\Redirect\RedirectModel;
 use Anomaly\RedirectsModule\Redirect\RedirectRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Application\Event\SystemIsRefreshing;
 use Anomaly\Streams\Platform\Model\Redirects\RedirectsDomainsEntryModel;
 use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
 
@@ -40,6 +42,17 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
      */
     protected $middleware = [
         RedirectDomains::class,
+    ];
+
+    /**
+     * The addon listeners.
+     *
+     * @var array
+     */
+    protected $listeners = [
+        SystemIsRefreshing::class => [
+            RefreshRedirectsModule::class,
+        ],
     ];
 
     /**
