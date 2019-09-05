@@ -1,6 +1,7 @@
 <?php namespace Anomaly\RedirectsModule\Listener;
 
 use Anomaly\Streams\Platform\Application\Event\SystemIsRefreshing;
+use Anomaly\Streams\Platform\Console\Kernel;
 
 /**
  * Class RefreshRedirectsModule
@@ -21,6 +22,8 @@ class RefreshRedirectsModule
     {
         $command = $event->getCommand();
 
-        $command->call('redirects:dump');
+        app(Kernel::class)->call('redirects:dump');
+
+        $command->info('Redirects cache refreshed.');
     }
 }
