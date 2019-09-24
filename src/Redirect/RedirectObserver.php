@@ -25,5 +25,4 @@ class RedirectObserver extends EntryObserver
 
         dispatch_now(new DumpRedirects());
     }
-
 }

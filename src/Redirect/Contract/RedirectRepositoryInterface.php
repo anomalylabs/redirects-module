@@ -11,5 +11,4 @@ use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
  */
 interface RedirectRepositoryInterface extends EntryRepositoryInterface
 {
-
 }

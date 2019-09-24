@@ -90,5 +90,4 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
 
         require $routes;
     }
-
 }

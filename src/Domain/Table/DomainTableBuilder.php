@@ -66,5 +66,4 @@ class DomainTableBuilder extends TableBuilder
         'limit'    => 999,
         'sortable' => true,
     ];
-
 }

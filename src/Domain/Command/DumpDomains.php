@@ -30,7 +30,6 @@ class DumpDomains
             ",",
             array_map(
                 function (DomainInterface $domain) {
-
                     $secure = $domain->isSecure() ? 'true' : 'false';
 
                     return "'{$domain->getFrom()}' => ['to' => '{$domain->getTo()}', 'status' => {$domain->getStatus()}, 'secure' => {$secure}]";

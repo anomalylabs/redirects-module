@@ -4,5 +4,4 @@ use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
 
 interface DomainRepositoryInterface extends EntryRepositoryInterface
 {
-
 }

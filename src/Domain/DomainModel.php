@@ -52,5 +52,4 @@ class DomainModel extends RedirectsDomainsEntryModel implements DomainInterface
     {
         return $this->secure;
     }
-
 }

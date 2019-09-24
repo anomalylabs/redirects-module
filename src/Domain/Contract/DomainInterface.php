@@ -39,5 +39,4 @@ interface DomainInterface extends EntryInterface
      * @return bool
      */
     public function isSecure();
-
 }

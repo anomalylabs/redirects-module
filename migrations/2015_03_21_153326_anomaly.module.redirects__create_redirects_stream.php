@@ -42,5 +42,4 @@ class AnomalyModuleRedirectsCreateRedirectsStream extends Migration
         ],
         'secure',
     ];
-
 }

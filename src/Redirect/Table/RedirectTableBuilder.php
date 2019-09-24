@@ -66,5 +66,4 @@ class RedirectTableBuilder extends TableBuilder
         'limit'    => 999,
         'sortable' => true,
     ];
-
 }

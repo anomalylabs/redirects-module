@@ -2,34 +2,16 @@
 
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\Streams\Platform\Support\Parser;
-use Illuminate\Contracts\Routing\UrlGenerator;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
-use Illuminate\Routing\Route;
 
 /**
  * Class RedirectResponse
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class RedirectResponse
 {
-
-    /**
-     * The URL generator.
-     *
-     * @var UrlGenerator
-     */
-    protected $url;
-
-    /**
-     * The route instance.
-     *
-     * @var Route
-     */
-    protected $route;
 
     /**
      * The parser utility.
@@ -39,35 +21,13 @@ class RedirectResponse
     protected $parser;
 
     /**
-     * The request object.
-     *
-     * @var Request
-     */
-    protected $request;
-
-    /**
-     * The redirector utility.
-     *
-     * @var Redirector
-     */
-    protected $redirector;
-
-    /**
      * Create a new RedirectResponse instance.
      *
-     * @param UrlGenerator $url
-     * @param Route        $route
-     * @param Parser       $parser
-     * @param Request      $request
-     * @param Redirector   $redirector
+     * @param Parser $parser
      */
-    function __construct(UrlGenerator $url, Route $route, Parser $parser, Request $request, Redirector $redirector)
+    public function __construct(Parser $parser)
     {
-        $this->url        = $url;
-        $this->route      = $route;
-        $this->parser     = $parser;
-        $this->request    = $request;
-        $this->redirector = $redirector;
+        $this->parser = $parser;
     }
 
     /**
@@ -83,13 +43,13 @@ class RedirectResponse
                 function () {
                     return null;
                 },
-                array_flip($this->route->parameterNames())
+                array_flip(request()->route()->parameterNames())
             ),
-            $this->route->parameters()
+            request()->route()->parameters()
         );
 
         if (!starts_with($url = $redirect->getTo(), ['http://', 'https://', '//'])) {
-            $url = $this->url->to($url);
+            $url = url($url);
         }
 
         $parsed = parse_url(
@@ -139,16 +99,16 @@ class RedirectResponse
         );
 
         parse_str($parsed['query'], $parsed['query']);
-        parse_str($this->request->getQueryString(), $query);
+        parse_str(request()->getQueryString(), $query);
 
         $parsed['query'] = http_build_query(array_merge($parsed['query'], $query));
 
         if (!isset($parsed['host'])) {
-            $parsed['host'] = $this->request->getHost();
+            $parsed['host'] = request()->getHost();
         }
 
-        if (!isset($parsed['port']) && !in_array($this->request->getPort(), ['443', '80'])) {
-            $parsed['port'] = $this->request->getPort();
+        if (!isset($parsed['port']) && !in_array(request()->getPort(), ['443', '80'])) {
+            $parsed['port'] = request()->getPort();
         }
 
         if (!isset($parsed['scheme'])) {
@@ -170,7 +130,7 @@ class RedirectResponse
             (($query = array_get($parsed, 'query')) ? "?{$query}" : '') .
             (($fragment = array_get($parsed, 'fragment')) ? "#{$fragment}" : '');
 
-        return $this->redirector->to(
+        return redirect(
             rtrim($this->parser->parse($url, $parameters), '/'),
             $redirect->getStatus()
         );

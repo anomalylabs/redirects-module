@@ -30,8 +30,8 @@ return [
         ],
         'warning'      => [
             'domains' => 'Leave blank to use the configured primary domain: <strong>' . config(
-                    'streams::system.domain'
-                ) . '</strong>',
+                'streams::system.domain'
+            ) . '</strong>',
         ],
     ],
     'status' => [

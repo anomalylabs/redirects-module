@@ -32,5 +32,4 @@ class AnomalyModuleRedirectsCreateRedirectsFields extends Migration
         ],
         'secure' => 'anomaly.field_type.boolean',
     ];
-
 }

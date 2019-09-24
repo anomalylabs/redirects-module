@@ -62,5 +62,4 @@ class DomainFormBuilder extends FormBuilder
      * @var array
      */
     protected $assets = [];
-
 }

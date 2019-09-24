@@ -40,5 +40,4 @@ class AnomalyModuleRedirectsCreateDomainsStream extends Migration
         ],
         'secure',
     ];
-
 }
