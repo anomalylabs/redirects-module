@@ -1,4 +1,6 @@
-<?php namespace Anomaly\RedirectsModule\Http\Middleware;
+<?php
+
+namespace Anomaly\RedirectsModule\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -36,7 +38,7 @@ class RedirectDomains
                     $redirect,
                     'to',
                     config('streams::system.domain')
-                ),
+                ) . '/' . $request->path(),
                 $redirect['status'],
                 [],
                 config('streams::system.force_ssl', false) ?: $redirect['secure']
