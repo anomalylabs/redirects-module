@@ -38,7 +38,7 @@ class RedirectDomains
                     $redirect,
                     'to',
                     config('streams::system.domain')
-                ) . '/' . $request->path(),
+                ) . '/' . trim($request->path(), '/'),
                 $redirect['status'],
                 [],
                 config('streams::system.force_ssl', false) ?: $redirect['secure']
