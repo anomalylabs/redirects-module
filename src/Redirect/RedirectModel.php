@@ -2,6 +2,7 @@
 
 use Anomaly\RedirectsModule\Redirect\Contract\RedirectInterface;
 use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class RedirectModel
@@ -12,6 +13,7 @@ use Anomaly\Streams\Platform\Model\Redirects\RedirectsRedirectsEntryModel;
  */
 class RedirectModel extends RedirectsRedirectsEntryModel implements RedirectInterface
 {
+    use HasFactory;
 
     /**
      * Get the redirect from matcher.

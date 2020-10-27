@@ -29,11 +29,17 @@
         "source": "https://github.com/anomalylabs/redirects-module"
     },
     "require": {
-        "anomaly/streams-platform": "^1.6"
+        "anomaly/streams-platform": "^1.8"
     },
     "autoload": {
         "psr-4": {
             "Anomaly\\RedirectsModule\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Anomaly\\RedirectsModuleTest\\": "tests/",
+            "Database\\Factories\\Anomaly\\RedirectsModule\\": "factories/"
         }
     }
 }
