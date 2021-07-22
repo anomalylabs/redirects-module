@@ -29,7 +29,7 @@
         "source": "https://github.com/anomalylabs/redirects-module"
     },
     "require": {
-        "anomaly/streams-platform": "^2.0"
+        "anomaly/streams-platform": "^1.10"
     },
     "autoload": {
         "psr-4": {
