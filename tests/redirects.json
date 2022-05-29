@@ -1,0 +1,7 @@
+[
+    {
+        "from": "/redirect-test",
+        "to": "/redirect-works",
+        "type": 302
+    }
+]

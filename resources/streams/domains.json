@@ -1,0 +1,25 @@
+{
+    "name": "Domains",
+    "fields": [
+        {
+            "handle": "from",
+            "type": "string"
+        },
+        {
+            "handle": "to",
+            "type": "string"
+        },
+        {
+            "handle": "secure",
+            "type": "boolean"
+        },
+        {
+            "handle": "type",
+            "type": "select",
+            "options": {
+                "301": "301 - Permanent",
+                "302": "302 - Temporary"
+            }
+        }
+    ]
+}

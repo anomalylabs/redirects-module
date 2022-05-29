@@ -1,0 +1,7 @@
+[
+    {
+        "from": "localhost",
+        "to": "example.com",
+        "type": 302
+    }
+]

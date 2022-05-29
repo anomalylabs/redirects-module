@@ -1,0 +1,21 @@
+{
+    "name": "Redirects",
+    "fields": [
+        {
+            "handle": "from",
+            "type": "string"
+        },
+        {
+            "handle": "to",
+            "type": "string"
+        },
+        {
+            "handle": "type",
+            "type": "select",
+            "options": {
+                "301": "301 - Permanent",
+                "302": "302 - Temporary"
+            }
+        }
+    ]
+}
