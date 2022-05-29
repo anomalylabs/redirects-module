@@ -23,6 +23,6 @@ class RedirectDomainsTest extends RedirectsTestCase
         });
 
         $this->assertInstanceOf(RedirectResponse::class, $response);
-        dd($response->getTargetUrl());
+        $this->assertSame('http://example.com', $response->getTargetUrl());
     }
 }
