@@ -8,7 +8,7 @@ use Streams\Redirects\Http\Middleware\RedirectDomains;
 
 class RedirectDomainsTest extends RedirectsTestCase
 {
-    public function test_it_redirects_simple_paths()
+    public function test_it_redirects_domains()
     {
         $request = Request::create('/');
 
