@@ -23,6 +23,6 @@ class DomainObserver extends EntryObserver
     {
         parent::saved($entry);
 
-        dispatch_now(new DumpDomains());
+        dispatch_sync(new DumpDomains());
     }
 }

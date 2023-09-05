@@ -46,6 +46,6 @@ class DumpRedirects
 
         file_put_contents($file, "<?php\n\n" . $content);
 
-        dispatch_now(new CacheRoutes());
+        dispatch_sync(new CacheRoutes());
     }
 }

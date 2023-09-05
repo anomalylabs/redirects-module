@@ -26,10 +26,10 @@ class Dump extends Command
      */
     public function handle()
     {
-        dispatch_now(new DumpDomains());
+        dispatch_sync(new DumpDomains());
         $this->info('Wrote: ' . app_storage_path('redirects/domains.php'));
 
-        dispatch_now(new DumpRedirects());
+        dispatch_sync(new DumpRedirects());
         $this->info('Wrote: ' . app_storage_path('redirects/routes.php'));
     }
 }

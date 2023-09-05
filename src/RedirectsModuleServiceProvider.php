@@ -81,11 +81,11 @@ class RedirectsModuleServiceProvider extends AddonServiceProvider
     public function map()
     {
         if (!file_exists($routes = app_storage_path('redirects/routes.php'))) {
-            dispatch_now(new DumpRedirects());
+            dispatch_sync(new DumpRedirects());
         }
 
         if (!file_exists(app_storage_path('redirects/domains.php'))) {
-            dispatch_now(new DumpDomains());
+            dispatch_sync(new DumpDomains());
         }
 
         require $routes;

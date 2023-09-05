@@ -23,7 +23,7 @@ class RedirectObserver extends EntryObserver
     {
         parent::saved($entry);
 
-        dispatch_now(new DumpRedirects());
+        dispatch_sync(new DumpRedirects());
     }
 
 }
