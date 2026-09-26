@@ -33,9 +33,12 @@ class DumpRedirects
                 ->sorted()
                 ->map(
                     function (RedirectInterface $redirect) {
-                        return "Route::any('{$redirect->getFrom()}', [
+                        $from = var_export((string)$redirect->getFrom(), true);
+                        $id   = (int)$redirect->getId();
+
+                        return "Route::any({$from}, [
     'uses'     => 'Anomaly\\RedirectsModule\\Http\\Controller\\RedirectsController@handle',
-    'redirect' => {$redirect->getId()},
+    'redirect' => {$id},
 ])->where([
     'any'  => '(.*)',
     'path' => '(.*)',
