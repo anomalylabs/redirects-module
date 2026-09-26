@@ -31,9 +31,12 @@ class DumpDomains
             array_map(
                 function (DomainInterface $domain) {
 
+                    $from   = var_export((string)$domain->getFrom(), true);
+                    $to     = var_export((string)$domain->getTo(), true);
+                    $status = (int)$domain->getStatus();
                     $secure = $domain->isSecure() ? 'true' : 'false';
 
-                    return "'{$domain->getFrom()}' => ['to' => '{$domain->getTo()}', 'status' => {$domain->getStatus()}, 'secure' => {$secure}]";
+                    return "{$from} => ['to' => {$to}, 'status' => {$status}, 'secure' => {$secure}]";
                 },
                 $domains->all()->all()
             )
