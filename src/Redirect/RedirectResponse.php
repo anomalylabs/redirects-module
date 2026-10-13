@@ -115,7 +115,7 @@ class RedirectResponse
         array_set(
             $parsed,
             'path',
-            $this->parser->parse(
+            $this->parser->parseData(
                 array_get($parsed, 'path', ''),
                 array_get($variables, 'parameters', [])
             )
@@ -124,7 +124,7 @@ class RedirectResponse
         array_set(
             $parsed,
             'host',
-            $this->parser->parse(
+            $this->parser->parseData(
                 array_get($parsed, 'host', ''),
                 array_get($variables, 'parameters', [])
             )
@@ -133,7 +133,7 @@ class RedirectResponse
         array_set(
             $parsed,
             'query',
-            $this->parser->parse(
+            $this->parser->parseData(
                 array_get($parsed, 'query', '')
             )
         );
@@ -171,7 +171,7 @@ class RedirectResponse
             (($fragment = array_get($parsed, 'fragment')) ? "#{$fragment}" : '');
 
         return $this->redirector->to(
-            rtrim($this->parser->parse($url, $parameters), '/'),
+            rtrim($this->parser->parseData($url, $parameters), '/'),
             $redirect->getStatus()
         );
     }
